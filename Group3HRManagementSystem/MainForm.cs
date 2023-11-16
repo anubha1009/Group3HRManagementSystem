@@ -21,5 +21,33 @@ namespace Group3HRManagementSystem
         {
             this.Close();
         }//Exit from application
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Added by Vineela Pendam
+            
+            //1. instantiate the about form
+            AboutBox aboutBox = new AboutBox();
+            //2.make the about box child form to main form
+            aboutBox.MdiParent = this;
+            //3.show the about form
+            aboutBox.Show();
+        }
+
+        private void addEmployeeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //added by vineela pendam
+            AddEmployeeDetails addEmployeeDetails = AddEmployeeDetails.GetSTForm();
+            addEmployeeDetails.MdiParent = this;
+            addEmployeeDetails.Show();
+        }
+
+        private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //added by vineela pendam
+            AddProjectDetails addProjectDetails = new AddProjectDetails();
+            addProjectDetails.MdiParent = this;
+            addProjectDetails.Show();
+        }
     }//end MainForm Class
 }//end Namespace
