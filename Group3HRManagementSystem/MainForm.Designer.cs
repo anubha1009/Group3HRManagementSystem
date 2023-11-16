@@ -32,16 +32,16 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addEmployeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewEmployeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.projectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editProjectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaryCalculatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -82,6 +82,61 @@
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "&Edit";
+            // 
+            // employeeToolStripMenuItem
+            // 
+            this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addEmployeeToolStripMenuItem,
+            this.viewEmployeesToolStripMenuItem});
+            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.employeeToolStripMenuItem.Text = "Employee";
+            // 
+            // addEmployeeToolStripMenuItem
+            // 
+            this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
+            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.addEmployeeToolStripMenuItem.Text = "Add Employee";
+            // 
+            // viewEmployeesToolStripMenuItem
+            // 
+            this.viewEmployeesToolStripMenuItem.Name = "viewEmployeesToolStripMenuItem";
+            this.viewEmployeesToolStripMenuItem.Size = new System.Drawing.Size(200, 26);
+            this.viewEmployeesToolStripMenuItem.Text = "View Employees";
+            // 
+            // projectToolStripMenuItem
+            // 
+            this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addProjectToolStripMenuItem,
+            this.viewProjectToolStripMenuItem,
+            this.editProjectToolStripMenuItem});
+            this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.projectToolStripMenuItem.Text = "Project";
+            // 
+            // addProjectToolStripMenuItem
+            // 
+            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.addProjectToolStripMenuItem.Text = "Add Project";
+            // 
+            // viewProjectToolStripMenuItem
+            // 
+            this.viewProjectToolStripMenuItem.Name = "viewProjectToolStripMenuItem";
+            this.viewProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.viewProjectToolStripMenuItem.Text = "View Projects";
+            // 
+            // editProjectToolStripMenuItem
+            // 
+            this.editProjectToolStripMenuItem.Name = "editProjectToolStripMenuItem";
+            this.editProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.editProjectToolStripMenuItem.Text = "Edit Project";
+            // 
+            // salaryCalculatorToolStripMenuItem
+            // 
+            this.salaryCalculatorToolStripMenuItem.Name = "salaryCalculatorToolStripMenuItem";
+            this.salaryCalculatorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.salaryCalculatorToolStripMenuItem.Text = "Salary Calculator";
             // 
             // helpToolStripMenuItem
             // 
@@ -96,61 +151,6 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
             this.aboutToolStripMenuItem.Text = "&About";
-            // 
-            // employeeToolStripMenuItem
-            // 
-            this.employeeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addEmployeeToolStripMenuItem,
-            this.viewEmployeesToolStripMenuItem});
-            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.employeeToolStripMenuItem.Text = "Employee";
-            // 
-            // projectToolStripMenuItem
-            // 
-            this.projectToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProjectToolStripMenuItem,
-            this.viewProjectToolStripMenuItem,
-            this.editProjectToolStripMenuItem});
-            this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.projectToolStripMenuItem.Text = "Project";
-            // 
-            // addEmployeeToolStripMenuItem
-            // 
-            this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
-            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.addEmployeeToolStripMenuItem.Text = "Add Employee";
-            // 
-            // viewEmployeesToolStripMenuItem
-            // 
-            this.viewEmployeesToolStripMenuItem.Name = "viewEmployeesToolStripMenuItem";
-            this.viewEmployeesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.viewEmployeesToolStripMenuItem.Text = "View Employees";
-            // 
-            // addProjectToolStripMenuItem
-            // 
-            this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
-            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.addProjectToolStripMenuItem.Text = "Add Project";
-            // 
-            // viewProjectToolStripMenuItem
-            // 
-            this.viewProjectToolStripMenuItem.Name = "viewProjectToolStripMenuItem";
-            this.viewProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.viewProjectToolStripMenuItem.Text = "View Projects";
-            // 
-            // editProjectToolStripMenuItem
-            // 
-            this.editProjectToolStripMenuItem.Name = "editProjectToolStripMenuItem";
-            this.editProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.editProjectToolStripMenuItem.Text = "Edit Project";
-            // 
-            // salaryCalculatorToolStripMenuItem
-            // 
-            this.salaryCalculatorToolStripMenuItem.Name = "salaryCalculatorToolStripMenuItem";
-            this.salaryCalculatorToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.salaryCalculatorToolStripMenuItem.Text = "Salary Calculator";
             // 
             // MainForm
             // 
