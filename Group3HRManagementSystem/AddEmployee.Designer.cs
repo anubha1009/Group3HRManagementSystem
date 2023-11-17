@@ -43,8 +43,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.addEmployeeButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.addEmployeeValidationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.addEmployeeValidationErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,12 +60,12 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(169, 84);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 20);
+            this.label2.Size = new System.Drawing.Size(99, 18);
             this.label2.TabIndex = 1;
-            this.label2.Text = "FirstName";
+            this.label2.Text = "FirstName :";
             // 
             // label3
             // 
@@ -171,9 +171,9 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(121, 26);
             this.dateTimePicker1.TabIndex = 14;
             // 
-            // errorProvider1
+            // addEmployeeValidationErrorProvider
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.addEmployeeValidationErrorProvider.ContainerControl = this;
             // 
             // AddEmployeeDetails
             // 
@@ -196,7 +196,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddEmployeeDetails";
             this.Text = "Add Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addEmployeeValidationErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +218,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button addEmployeeButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider addEmployeeValidationErrorProvider;
     }
 }

@@ -14,7 +14,7 @@ namespace Group3HRManagementSystem
     public partial class AddProjectDetails : Form
     {
         //step2 private static variable
-        private static AddProjectDetails addProjectInstance;
+       // private static AddProjectDetails addProjectInstance;
         public AddProjectDetails() //make c
         {
             InitializeComponent();

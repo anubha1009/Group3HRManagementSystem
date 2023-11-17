@@ -82,7 +82,7 @@
             this.projectToolStripMenuItem,
             this.salaryCalculatorToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 32);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(58, 29);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
             // employeeToolStripMenuItem
@@ -91,20 +91,20 @@
             this.addEmployeeToolStripMenuItem,
             this.viewEmployeesToolStripMenuItem});
             this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
-            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.employeeToolStripMenuItem.Text = "Employee";
             // 
             // addEmployeeToolStripMenuItem
             // 
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
-            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
             this.addEmployeeToolStripMenuItem.Text = "Add Employee";
             this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
             // 
             // viewEmployeesToolStripMenuItem
             // 
             this.viewEmployeesToolStripMenuItem.Name = "viewEmployeesToolStripMenuItem";
-            this.viewEmployeesToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.viewEmployeesToolStripMenuItem.Size = new System.Drawing.Size(242, 34);
             this.viewEmployeesToolStripMenuItem.Text = "View Employees";
             // 
             // projectToolStripMenuItem
@@ -114,13 +114,13 @@
             this.viewProjectToolStripMenuItem,
             this.editProjectToolStripMenuItem});
             this.projectToolStripMenuItem.Name = "projectToolStripMenuItem";
-            this.projectToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.projectToolStripMenuItem.Size = new System.Drawing.Size(244, 34);
             this.projectToolStripMenuItem.Text = "Project";
             // 
             // addProjectToolStripMenuItem
             // 
             this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
-            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(218, 34);
             this.addProjectToolStripMenuItem.Text = "Add Project";
             this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
             // 
@@ -141,6 +141,7 @@
             this.salaryCalculatorToolStripMenuItem.Name = "salaryCalculatorToolStripMenuItem";
             this.salaryCalculatorToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.salaryCalculatorToolStripMenuItem.Text = "Salary Calculator";
+            this.salaryCalculatorToolStripMenuItem.Click += new System.EventHandler(this.salaryCalculatorToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -153,7 +154,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
             this.aboutToolStripMenuItem.Text = "&About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 

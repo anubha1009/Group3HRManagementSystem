@@ -42,12 +42,21 @@ namespace Group3HRManagementSystem
             addEmployeeDetails.Show();
         }
 
+       
+
         private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //added by vineela pendam
             AddProjectDetails addProjectDetails = new AddProjectDetails();
             addProjectDetails.MdiParent = this;
             addProjectDetails.Show();
+        }
+
+        private void salaryCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SalaryCalculatorForm salaryCalculator = new SalaryCalculatorForm();
+            salaryCalculator.MdiParent = this;
+            salaryCalculator.Show();
         }
     }//end MainForm Class
 }//end Namespace
