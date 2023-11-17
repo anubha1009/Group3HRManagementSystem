@@ -8,7 +8,7 @@ namespace Group3HRManagementSystem
 {
     internal class TempContractEmployee: ContractEmployee
     {
-        public TempContractEmployee(string firstName, string lastName, string jobTitle) : base(firstName, lastName)
+        public TempContractEmployee(string firstName, string lastName, string jobTitle) : base(firstName, lastName,jobTitle)
         {
             jobTitle=this.GetType().Name;
         }
