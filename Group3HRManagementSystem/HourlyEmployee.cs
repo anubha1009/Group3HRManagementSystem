@@ -8,9 +8,11 @@ namespace Group3HRManagementSystem
 {
     internal class HourlyEmployee:EmployeeClass
     {
-        public HourlyEmployee(string firstName, string lastName, string jobTitle) : base(firstName, lastName)
+        public HourlyEmployee(string firstName, string lastName, string jobTitle, double wage , double hoursWorked) : base(firstName, lastName)
         {
             jobTitle= this.GetType().Name; 
+            this.HourlyWage = wage;
+            this.HoursWorked = hoursWorked;
         }//ctor 
 
 

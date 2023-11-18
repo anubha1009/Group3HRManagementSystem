@@ -8,17 +8,16 @@ namespace Group3HRManagementSystem
 {
     internal class TempContractEmployee: ContractEmployee
     {
-        public TempContractEmployee(string firstName, string lastName, string jobTitle) : base(firstName, lastName,jobTitle)
+        public TempContractEmployee(string firstName, string lastName, string jobTitle, double hoursWorked) : base(firstName, lastName, jobTitle, hoursWorked)
         {
-            jobTitle=this.GetType().Name;
+            this.WorkedHours = hoursWorked;
         }
 
-        public double ContractPeriod { get; private set; }
         public double PayRate { get; private set; }
-
+        public double WorkedHours { get; private set; }
         public override double CalculatePay()
         {
-            return PayRate * ContractPeriod;
+            return PayRate * WorkedHours;
         }
     }//end TempContractEmployee
 }//end namespace

@@ -8,16 +8,19 @@ namespace Group3HRManagementSystem
 {
     internal class ContractEmployee:EmployeeClass
     {
-        public ContractEmployee(string firstName, string lastName, string jobTitle) : base(firstName, lastName)
+       
+
+        public ContractEmployee(string firstName, string lastName, string jobTitle , double daysWorked) : base(firstName, lastName)
         {
             jobTitle = this.GetType().Name;
+            this.DaysWorked = daysWorked;
         }
 
-        public double HoursWorked { get; private set; }
+        public double DaysWorked { get; private set; }
 
         public override double CalculatePay()
         {
-            return EmployeeSalary * HoursWorked;
+            return EmployeeSalary * DaysWorked;
         }
     }//end contract employee class
 }//end namespace

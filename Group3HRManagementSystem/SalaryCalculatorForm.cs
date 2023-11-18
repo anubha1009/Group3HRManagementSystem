@@ -45,6 +45,9 @@ namespace Group3HRManagementSystem
                 fixedSalaryTextBox.Enabled = true;
                 fixedSalaryLabel.Enabled = true;
 
+            }else if (typeOfEmployeeComboBox.SelectedIndex == 3)
+            {
+
             }
         }
 
@@ -100,9 +103,14 @@ namespace Group3HRManagementSystem
                 salaryCalculatorErrorProvider.SetError(typeOfEmployeeComboBox, "Select Type of Employee");
             }//end validate typeEmployee
         }//end calculateButton
-       /* private bool validateEmployeeFields(string , string hoursWorked)
-        {
 
-        }*/
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /* private bool validateEmployeeFields(string , string hoursWorked)
+{
+
+}*/
     }
 }
