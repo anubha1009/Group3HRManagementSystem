@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//Created by Vineela , modified by Anubha 
 namespace Group3HRManagementSystem
 {
     public partial class SalaryCalculatorForm : Form
@@ -16,40 +16,85 @@ namespace Group3HRManagementSystem
         {
             InitializeComponent();
         }
+        //declaring delegate
+        private delegate void NoteDelegate(string s);
 
+        //Mofified by Anubha Vishwakarma
         private void typeOfEmployeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(typeOfEmployeeComboBox.SelectedIndex == 0)
-            {
-                contractEmployeeGroupBox.Visible = true;
-                contractEmployeeGroupBox.Enabled = true;
-                // tempContractEmployeeGroupBox.Visible =false;
+            //Calling delegates
+            noteLabel.Text = "";
+            NoteDelegate noteDelegate0 = new NoteDelegate(Note); // to display placeholder content
+            noteDelegate0(typeOfEmployeeComboBox.Text);
+            if (typeOfEmployeeComboBox.SelectedIndex == 0)
+            { 
+                //disabling all other boxes       
                 tempContractEmployeeGroupBox.Enabled=false;
+                hourlyEmployeeGroupBox.Enabled=false;
                 fixedSalaryTextBox.Enabled = false;
                 fixedSalaryLabel.Enabled = false;
+                
+                noteLabel.Text += $"{Environment.NewLine}The final pay is determined by subtracting 10% for income tax and adding 2% for contract incentives from the calculated pay";
+         
+
             }
             else if(typeOfEmployeeComboBox.SelectedIndex == 1)
             {
-                contractEmployeeGroupBox.Enabled = false;
-                tempContractEmployeeGroupBox.Visible = true;
+                //disabling all other boxes    
                 tempContractEmployeeGroupBox.Enabled = true;
+                contractEmployeeGroupBox.Enabled = false;
+                hourlyEmployeeGroupBox.Enabled = false;           
                 fixedSalaryTextBox.Enabled = false;
                 fixedSalaryLabel.Enabled = false;
+                string message = $"{Environment.NewLine}The final pay includes the calculated pay plus a 0.5% temporary contract incentive";
+
+                //Using Anonymous Method
+                NoteDelegate noteDelegate1 = delegate (string s)
+                {
+                    noteLabel.Text += s;
+                };
+                noteDelegate1(message);
+                
+
             }
             else if (typeOfEmployeeComboBox.SelectedIndex == 2)
             {
+                //disabling all other boxes 
                 contractEmployeeGroupBox.Enabled = false;
                 tempContractEmployeeGroupBox.Enabled = false;
-                fixedSalaryTextBox.Visible = true;
-                fixedSalaryLabel.Visible = true;
+                hourlyEmployeeGroupBox.Enabled = false;           
                 fixedSalaryTextBox.Enabled = true;
                 fixedSalaryLabel.Enabled = true;
+                string message = $"{Environment.NewLine}The final pay is calculated by applying a 10% income tax reduction and a 5% gratuity deduction to the calculated pay.";
 
-            }else if (typeOfEmployeeComboBox.SelectedIndex == 3)
-            {
+                //Using Lambda Expressions
+                NoteDelegate noteDelegate2 = (s) =>
+                {
+                    noteLabel.Text += s;
+                };
+                noteDelegate2(message);
 
             }
+            else if (typeOfEmployeeComboBox.SelectedIndex == 3)
+            {
+                hourlyEmployeeGroupBox.Enabled = true;
+                contractEmployeeGroupBox.Enabled = false;
+                tempContractEmployeeGroupBox.Enabled = false;
+                fixedSalaryTextBox.Enabled = false;
+                fixedSalaryLabel.Enabled = false;
+
+                //Directly Calling method
+                this.Note(typeOfEmployeeComboBox.Text);
+                NoteDelegate noteDelegate3 = new NoteDelegate(NoteForHourlyPay);
+                noteDelegate3($"{Environment.NewLine}The final pay is determined by multiplying the hours worked by the pay rate.");
+
+            }
+            
         }
+        private void NoteForHourlyPay(string s)
+        {
+            noteLabel.Text += s;
+        }//end note for hourly pay method
 
         private void SalaryCalculatorForm_Load(object sender, EventArgs e)
         {
@@ -73,6 +118,7 @@ namespace Group3HRManagementSystem
             tempContractEmployeeGroupBox.Enabled=true;
             fixedSalaryTextBox.Enabled = true;
             fixedSalaryLabel.Enabled=true;
+            hourlyEmployeeGroupBox.Enabled = true;
         }
 
         private void CalculateSalaryButton_Click(object sender, EventArgs e)
@@ -111,6 +157,14 @@ namespace Group3HRManagementSystem
         /* private bool validateEmployeeFields(string , string hoursWorked)
 {
 
+
+        //Function created by Anubha
 }*/
+        private void Note(string employeeType)
+        {
+            string noteMessage = $"The Salary Calculation are based on the Type of Employee.{Environment.NewLine}" +
+                $"For selected Employee: {employeeType}";
+            noteLabel.Text = noteMessage;
+        }
     }
 }
