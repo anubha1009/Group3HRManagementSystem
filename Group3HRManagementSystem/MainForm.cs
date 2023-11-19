@@ -47,7 +47,7 @@ namespace Group3HRManagementSystem
         private void addProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //added by vineela pendam
-            AddProjectDetails addProjectDetails = new AddProjectDetails();
+            AddProjectDetails addProjectDetails = AddProjectDetails.GetSTForm2();
             addProjectDetails.MdiParent = this;
             addProjectDetails.Show();
         }

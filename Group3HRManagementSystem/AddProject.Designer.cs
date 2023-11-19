@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,7 +39,10 @@
             this.estimatedBudgetTextBox = new System.Windows.Forms.TextBox();
             this.hoursAllocatedNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.projectDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.addProjectDetailsErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.hoursAllocatedNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProjectDetailsErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -92,13 +96,14 @@
             // 
             // addProjectButton
             // 
-            this.addProjectButton.Location = new System.Drawing.Point(284, 379);
+            this.addProjectButton.Location = new System.Drawing.Point(186, 374);
             this.addProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addProjectButton.Name = "addProjectButton";
             this.addProjectButton.Size = new System.Drawing.Size(163, 42);
             this.addProjectButton.TabIndex = 5;
             this.addProjectButton.Text = "Submit";
             this.addProjectButton.UseVisualStyleBackColor = true;
+            this.addProjectButton.Click += new System.EventHandler(this.addProjectButton_Click);
             // 
             // projectNameTextBox
             // 
@@ -133,11 +138,26 @@
             this.projectDescriptionRichTextBox.TabIndex = 11;
             this.projectDescriptionRichTextBox.Text = "";
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(420, 374);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(153, 41);
+            this.exitButton.TabIndex = 12;
+            this.exitButton.Text = "E&xit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // addProjectDetailsErrorProvider
+            // 
+            this.addProjectDetailsErrorProvider.ContainerControl = this;
+            // 
             // AddProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.projectDescriptionRichTextBox);
             this.Controls.Add(this.hoursAllocatedNumericUpDown);
             this.Controls.Add(this.estimatedBudgetTextBox);
@@ -152,6 +172,7 @@
             this.Name = "AddProjectDetails";
             this.Text = "Add Project";
             ((System.ComponentModel.ISupportInitialize)(this.hoursAllocatedNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addProjectDetailsErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +190,7 @@
         private System.Windows.Forms.TextBox estimatedBudgetTextBox;
         private System.Windows.Forms.NumericUpDown hoursAllocatedNumericUpDown;
         private System.Windows.Forms.RichTextBox projectDescriptionRichTextBox;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.ErrorProvider addProjectDetailsErrorProvider;
     }
 }

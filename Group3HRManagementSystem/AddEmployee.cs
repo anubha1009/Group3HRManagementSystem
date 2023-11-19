@@ -115,5 +115,10 @@ namespace Group3HRManagementSystem
                 return false;
             }
         }//end Phone Number Validation
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

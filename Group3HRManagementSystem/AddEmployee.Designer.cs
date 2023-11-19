@@ -44,6 +44,7 @@
             this.addEmployeeButton = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.addEmployeeValidationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.exitButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addEmployeeValidationErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -155,7 +156,7 @@
             // 
             // addEmployeeButton
             // 
-            this.addEmployeeButton.Location = new System.Drawing.Point(311, 386);
+            this.addEmployeeButton.Location = new System.Drawing.Point(173, 386);
             this.addEmployeeButton.Name = "addEmployeeButton";
             this.addEmployeeButton.Size = new System.Drawing.Size(125, 36);
             this.addEmployeeButton.TabIndex = 13;
@@ -175,11 +176,22 @@
             // 
             this.addEmployeeValidationErrorProvider.ContainerControl = this;
             // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(456, 386);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(140, 36);
+            this.exitButton.TabIndex = 15;
+            this.exitButton.Text = "E&xit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
             // AddEmployeeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addEmployeeButton);
             this.Controls.Add(this.label7);
@@ -219,5 +231,6 @@
         private System.Windows.Forms.Button addEmployeeButton;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ErrorProvider addEmployeeValidationErrorProvider;
+        private System.Windows.Forms.Button exitButton;
     }
 }
