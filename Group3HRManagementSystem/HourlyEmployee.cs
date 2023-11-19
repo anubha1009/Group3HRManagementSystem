@@ -14,6 +14,11 @@ namespace Group3HRManagementSystem
             this.HourlyWage = wage;
             this.HoursWorked = hoursWorked;
         }//ctor 
+        public HourlyEmployee(double wage, double hoursWorked)
+        {
+            this.HourlyWage = wage;
+            this.HoursWorked = hoursWorked;
+        }
 
 
         public double HourlyWage { get; set; }

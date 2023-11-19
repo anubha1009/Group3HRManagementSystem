@@ -15,6 +15,15 @@ namespace Group3HRManagementSystem
             jobTitle = this.GetType().Name;
             this.DaysWorked = daysWorked;
         }
+        public ContractEmployee(double daysWorked , double salary)
+        {
+            this.DaysWorked = daysWorked;
+            this.EmployeeSalary = salary;
+        }
+        public ContractEmployee()
+        {
+
+        }
 
         public double DaysWorked { get; private set; }
 

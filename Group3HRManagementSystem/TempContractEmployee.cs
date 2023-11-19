@@ -12,6 +12,11 @@ namespace Group3HRManagementSystem
         {
             this.WorkedHours = hoursWorked;
         }
+        public TempContractEmployee(double hoursWorked , double payRate)
+        {
+            this.PayRate = payRate;
+            this.WorkedHours = hoursWorked;
+        }
 
         public double PayRate { get; private set; }
         public double WorkedHours { get; private set; }

@@ -8,14 +8,17 @@ namespace Group3HRManagementSystem
 {
     internal class EmployeeClass: IEmployee
     {
-        public string EmployeeFirstName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string EmployeeLastName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string EmployeeJobTitle { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string EmployeeEmail { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string EmployeePhone { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime EmployeeHireDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public double EmployeeSalary { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeLastName { get; set; }
+        public string EmployeeJobTitle { get; set; }
+        public string EmployeeEmail { get; set; }
+        public string EmployeePhone { get; set; }
+        public DateTime EmployeeHireDate { get; set; }
+        public double EmployeeSalary { get; set; }
+        public EmployeeClass()
+        {
 
+        }
         public EmployeeClass(string firstName , string lastName)
         {
             this.EmployeeFirstName = firstName;

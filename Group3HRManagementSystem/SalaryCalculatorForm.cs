@@ -122,6 +122,7 @@ namespace Group3HRManagementSystem
             fixedSalaryLabel.Enabled = true;
             hourlyEmployeeGroupBox.Enabled = true;
         }
+        //Validated by Vineela , calculated by Anubha Vishwakarma
 
         private void CalculateSalaryButton_Click(object sender, EventArgs e)
         {
@@ -131,6 +132,8 @@ namespace Group3HRManagementSystem
             double duration;
             double payRate;
             double fixedSalary;
+            double salaryPerDay;
+            double daysWorked;
 
             salaryCalculatorErrorProvider.Clear();
             if (typeOfEmployeeComboBox.SelectedIndex != -1)
@@ -145,15 +148,37 @@ namespace Group3HRManagementSystem
                                 // Check hours worked textbox
                                 if (validateInput(hoursWorkedtextBox, "Please enter a valid number of hours worked.", out hoursWorked))
                                 {
-                                    // Calculate hourly employee salary
+                                if (hourlyWage > 0 && hoursWorked>0)
+                                {                              
+                                        // Calculate hourly employee salary
+                                        HourlyEmployee hourlyEmployee = new HourlyEmployee(hourlyWage, hoursWorked);
+                                        SalaryCalculationClass calculator = new SalaryCalculationClass();
+                                        double salary = calculator.CalculateEmployeeSalary(hourlyEmployee);
+                                        resultLabel.Text = $"The Calculated Salary for the {hourlyEmployee.GetType().Name} is {salary.ToString()}";
                                 }
+                                else
+                                {
+                                    MessageBox.Show("Please Enter Value greated than 0", "Invalid Input", MessageBoxButtons.OK);
+                                }//end validation for positive
+                            }
                             }
                             break;
                         case "Salaried Employee":
                             if (validateInput(fixedSalaryTextBox, "Please enter a valid  salary.", out fixedSalary))
                             {
-                                // Calculate salaried employee salary
+                            if (fixedSalary > 0)
+                            { // Calculate salaried employee salary
+                                EmployeeClass salariedEmployee = new EmployeeClass();
+                                SalaryCalculationClass calculator = new SalaryCalculationClass();
+                                salariedEmployee.EmployeeSalary = fixedSalary;
+                                double salary = calculator.CalculateEmployeeSalary(salariedEmployee);
+                                resultLabel.Text = $"The Calculated Salary for the {employeeType} is {salary.ToString()}";
                             }
+                            else
+                            {
+                                MessageBox.Show("Please Enter Value greated than 0", "Invalid Input", MessageBoxButtons.OK);
+                            }//end validation for positive
+                        }
                             break;
                         case "Temp Contract Employee":
                             if (validateInput(durationTextBox, "Please enter a valid  Duration Period.", out duration))
@@ -161,10 +186,40 @@ namespace Group3HRManagementSystem
                                 
                                 if (validateInput(payRateTextBox, "Please enter a valid Pay Rate.", out payRate))
                                 {
-                                    // Calculate Temp employee salary
+                                    if(duration>0 && payRate > 0)
+                                {
+                                    TempContractEmployee tempContractEmployee = new TempContractEmployee(duration, payRate);
+                                    SalaryCalculationClass calculator = new SalaryCalculationClass();
+                                    double salary = calculator.CalculateEmployeeSalary(tempContractEmployee);
+                                    resultLabel.Text = $"The Calculated Salary for the {tempContractEmployee.GetType().Name} is {salary.ToString()}";
                                 }
+                               
+                                else
+                                {
+                                    MessageBox.Show("Please Enter Value greated than 0", "Invalid Input", MessageBoxButtons.OK);
+                                }//end validation for positive
+                            }
                             }
                             break;
+                    case "Contract Employee":
+                        if(validateInput(contractSalaryTextbox , "Please Enter a Valid Salary" , out salaryPerDay))
+                        {
+                            if(validateInput(contractDaysWorkedTextBox,"Please Enter a Valid Duration" , out daysWorked)){
+                                if(salaryPerDay >0 && daysWorked > 0)
+                                {
+                                    //Calculation for Conmtract Employee
+                                    ContractEmployee contractEmployee = new ContractEmployee(salaryPerDay, daysWorked);
+                                    SalaryCalculationClass calculator = new SalaryCalculationClass();
+                                    double salary = calculator.CalculateEmployeeSalary(contractEmployee);
+                                    resultLabel.Text = $"The Calculated Salary for the {contractEmployee.GetType().Name} is {salary.ToString()}";
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Please Enter Value greated than 0", "Invalid Input", MessageBoxButtons.OK);
+                                }//end validation for positive
+                            }
+                        }
+                        break;
                     }
                   
                 
