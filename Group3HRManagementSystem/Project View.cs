@@ -16,5 +16,34 @@ namespace Group3HRManagementSystem
         {
             InitializeComponent();
         }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            searchProjectByNameTextBox.Text = string.Empty;
+            searchProjectByIdTextBox.Text = string.Empty;
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string projectName;
+            int projectId;
+            projectName = searchProjectByNameTextBox.Text;
+            int.TryParse(searchProjectByIdTextBox.Text, out projectId);
+            if (!(string.IsNullOrEmpty(projectName) && projectId == 0))
+            {
+
+                //write validate method in employee class
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter Either ProjectName or Project Id", "Invalid Input", MessageBoxButtons.OK);
+            }
+        }
     }
 }

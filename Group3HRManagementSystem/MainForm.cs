@@ -58,5 +58,19 @@ namespace Group3HRManagementSystem
             salaryCalculator.MdiParent = this;
             salaryCalculator.Show();
         }
+
+        private void viewProjectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Project_View projectView = new Project_View();
+            projectView.MdiParent = this;
+            projectView.Show();
+        }
+
+        private void viewEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewEmployees employeeView = new ViewEmployees();
+            employeeView.MdiParent = this;
+            employeeView.Show();
+        }
     }//end MainForm Class
 }//end Namespace

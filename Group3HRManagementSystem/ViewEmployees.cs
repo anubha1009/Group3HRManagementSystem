@@ -29,5 +29,22 @@ namespace Group3HRManagementSystem
             employeeDescriptionLabel.Text = string.Empty;
             
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string employeeName;
+            int employeeId;
+            employeeName= searchByEmployeeNameTextBox.Text;
+            int.TryParse(searchByEmployeeIdTextBox.Text, out employeeId);
+            if(!(string.IsNullOrEmpty(employeeName)&& employeeId==0)) {
+
+                //write validate method in employee class
+
+            }
+            else
+            {
+                MessageBox.Show("Please Enter Either EmployeeName or Employee Id", "Invalid Input", MessageBoxButtons.OK);
+            }
+        }
     }
 }

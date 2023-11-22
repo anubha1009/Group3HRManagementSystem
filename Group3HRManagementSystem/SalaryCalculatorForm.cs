@@ -121,6 +121,8 @@ namespace Group3HRManagementSystem
             fixedSalaryTextBox.Enabled = true;
             fixedSalaryLabel.Enabled = true;
             hourlyEmployeeGroupBox.Enabled = true;
+            contractSalaryTextBox.Enabled = true;
+            contractSalaryTextBox.Text=string.Empty;
         }
         //Validated by Vineela , calculated by Anubha Vishwakarma
 
@@ -133,7 +135,9 @@ namespace Group3HRManagementSystem
             double payRate;
             double fixedSalary;
             double salaryPerDay;
-            double daysWorked;
+            DateTime contarctStatDate;
+            DateTime contractEndDate;
+           double daysWorked;
 
             salaryCalculatorErrorProvider.Clear();
             if (typeOfEmployeeComboBox.SelectedIndex != -1)
@@ -202,17 +206,26 @@ namespace Group3HRManagementSystem
                             }
                             break;
                     case "Contract Employee":
-                        if(validateInput(contractSalaryTextbox , "Please Enter a Valid Salary" , out salaryPerDay))
+                        if(validateInput(contractSalaryTextBox , "Please Enter a Valid Salary" , out fixedSalary))
                         {
-                            if(validateInput(contractDaysWorkedTextBox,"Please Enter a Valid Duration" , out daysWorked)){
-                                if(salaryPerDay >0 && daysWorked > 0)
+                            if (ValidateDates(contractStartDateTimePicker, contractEndDateTimePicker))
+                            {
+                                if(fixedSalary >0)
                                 {
                                     //Calculation for Conmtract Employee
-                                    ContractEmployee contractEmployee = new ContractEmployee(salaryPerDay, daysWorked);
+                                    daysWorked = 0;
+                                    ContractEmployee contractEmployee = new ContractEmployee(fixedSalary, daysWorked);
                                     SalaryCalculationClass calculator = new SalaryCalculationClass();
                                     double salary = calculator.CalculateEmployeeSalary(contractEmployee);
                                     resultLabel.Text = $"The Calculated Salary for the {contractEmployee.GetType().Name} is {salary.ToString()}";
                                 }
+                                //Calculation for Conmtract Employee
+                                /*ContractEmployee contractEmployee = new ContractEmployee(fixedSalary);
+                                SalaryCalculationClass calculator = new SalaryCalculationClass();
+                                double salary = calculator.CalculateEmployeeSalary(contractEmployee);
+                                resultLabel.Text = $"The Calculated Salary for the {contractEmployee.GetType().Name} is {salary.ToString()}";
+                                */
+
                                 else
                                 {
                                     MessageBox.Show("Please Enter Value greated than 0", "Invalid Input", MessageBoxButtons.OK);
@@ -257,5 +270,40 @@ namespace Group3HRManagementSystem
                 return false;
             }
         }
+        private bool ValidateDates(DateTimePicker contractStartDateTimePicker, DateTimePicker contractEndDateTimePicker)
+        {
+            bool isValidateDate = true;
+            // Validate the start date
+            if (contractStartDateTimePicker.Value < DateTime.Parse("2023-01-01"))
+            {
+                isValidateDate = false;
+                salaryCalculatorErrorProvider.SetError(contractStartDateTimePicker, "The start date must be on or after January 1, 2023.");
+               
+            }
+
+            // Validate the end date
+            if (contractEndDateTimePicker.Value > DateTime.Parse("2024-12-31"))
+            {
+                isValidateDate = false;
+                salaryCalculatorErrorProvider.SetError(contractEndDateTimePicker, "The end date must be on or before December 31, 2024.");
+                
+            }
+
+            // Check if the start date is before the end date
+            if (contractStartDateTimePicker.Value > contractEndDateTimePicker.Value)
+            {
+                isValidateDate = false;
+                salaryCalculatorErrorProvider.SetError(contractStartDateTimePicker, "The start date must be before the end date.");
+                salaryCalculatorErrorProvider.SetError(contractEndDateTimePicker, "The end date must be after the start date.");
+                
+            }
+
+            // Clear any error messages
+            salaryCalculatorErrorProvider.SetError(contractStartDateTimePicker, "");
+            salaryCalculatorErrorProvider.SetError(contractEndDateTimePicker, "");
+
+            return isValidateDate;
+        }
+        
     }
 }
