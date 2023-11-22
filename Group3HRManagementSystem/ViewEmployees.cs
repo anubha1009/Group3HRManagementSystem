@@ -20,6 +20,14 @@ namespace Group3HRManagementSystem
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }//close the application.
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            searchByEmployeeNameTextBox.Text = string.Empty;
+            searchByEmployeeIdTextBox.Text = string.Empty;
+            employeeDescriptionLabel.Text = string.Empty;
+            
         }
     }
 }
