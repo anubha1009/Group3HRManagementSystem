@@ -39,6 +39,8 @@
             this.viewEmployeeDataGridView = new System.Windows.Forms.DataGridView();
             this.employeeDescriptionLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.searchByEmployeeTypeTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.viewEmployeeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(103, 92);
+            this.label2.Location = new System.Drawing.Point(103, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(157, 15);
             this.label2.TabIndex = 1;
@@ -64,15 +66,15 @@
             // 
             // searchByEmployeeNameTextBox
             // 
-            this.searchByEmployeeNameTextBox.Location = new System.Drawing.Point(346, 92);
+            this.searchByEmployeeNameTextBox.Location = new System.Drawing.Point(106, 89);
             this.searchByEmployeeNameTextBox.Name = "searchByEmployeeNameTextBox";
-            this.searchByEmployeeNameTextBox.Size = new System.Drawing.Size(240, 22);
+            this.searchByEmployeeNameTextBox.Size = new System.Drawing.Size(216, 22);
             this.searchByEmployeeNameTextBox.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 133);
+            this.label3.Location = new System.Drawing.Point(372, 61);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(150, 16);
             this.label3.TabIndex = 3;
@@ -80,14 +82,14 @@
             // 
             // searchByEmployeeIdTextBox
             // 
-            this.searchByEmployeeIdTextBox.Location = new System.Drawing.Point(346, 126);
+            this.searchByEmployeeIdTextBox.Location = new System.Drawing.Point(373, 89);
             this.searchByEmployeeIdTextBox.Name = "searchByEmployeeIdTextBox";
-            this.searchByEmployeeIdTextBox.Size = new System.Drawing.Size(240, 22);
+            this.searchByEmployeeIdTextBox.Size = new System.Drawing.Size(214, 22);
             this.searchByEmployeeIdTextBox.TabIndex = 4;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(106, 184);
+            this.searchButton.Location = new System.Drawing.Point(106, 139);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 5;
@@ -97,7 +99,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(326, 184);
+            this.clearButton.Location = new System.Drawing.Point(447, 139);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 6;
@@ -107,7 +109,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(518, 184);
+            this.exitButton.Location = new System.Drawing.Point(751, 139);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 7;
@@ -118,35 +120,54 @@
             // viewEmployeeDataGridView
             // 
             this.viewEmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewEmployeeDataGridView.Location = new System.Drawing.Point(106, 262);
+            this.viewEmployeeDataGridView.Location = new System.Drawing.Point(106, 236);
             this.viewEmployeeDataGridView.Name = "viewEmployeeDataGridView";
             this.viewEmployeeDataGridView.RowHeadersWidth = 51;
             this.viewEmployeeDataGridView.RowTemplate.Height = 24;
-            this.viewEmployeeDataGridView.Size = new System.Drawing.Size(732, 136);
+            this.viewEmployeeDataGridView.Size = new System.Drawing.Size(550, 285);
             this.viewEmployeeDataGridView.TabIndex = 8;
+            this.viewEmployeeDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.viewEmployeeDataGridView_RowHeaderMouseClick);
             // 
             // employeeDescriptionLabel
             // 
             this.employeeDescriptionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.employeeDescriptionLabel.Location = new System.Drawing.Point(106, 423);
+            this.employeeDescriptionLabel.Location = new System.Drawing.Point(679, 236);
             this.employeeDescriptionLabel.Name = "employeeDescriptionLabel";
-            this.employeeDescriptionLabel.Size = new System.Drawing.Size(732, 109);
+            this.employeeDescriptionLabel.Size = new System.Drawing.Size(177, 285);
             this.employeeDescriptionLabel.TabIndex = 9;
             // 
             // errorLabel
             // 
             this.errorLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.errorLabel.Location = new System.Drawing.Point(106, 226);
+            this.errorLabel.Location = new System.Drawing.Point(106, 180);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(732, 23);
             this.errorLabel.TabIndex = 10;
             this.errorLabel.Text = "No Errors";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(637, 62);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(172, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Search By  Employee Type";
+            // 
+            // searchByEmployeeTypeTextBox
+            // 
+            this.searchByEmployeeTypeTextBox.Location = new System.Drawing.Point(640, 89);
+            this.searchByEmployeeTypeTextBox.Name = "searchByEmployeeTypeTextBox";
+            this.searchByEmployeeTypeTextBox.Size = new System.Drawing.Size(198, 22);
+            this.searchByEmployeeTypeTextBox.TabIndex = 12;
+            // 
             // ViewEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(868, 558);
+            this.ClientSize = new System.Drawing.Size(924, 558);
+            this.Controls.Add(this.searchByEmployeeTypeTextBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.employeeDescriptionLabel);
             this.Controls.Add(this.viewEmployeeDataGridView);
@@ -180,5 +201,7 @@
         private System.Windows.Forms.DataGridView viewEmployeeDataGridView;
         private System.Windows.Forms.Label employeeDescriptionLabel;
         private System.Windows.Forms.Label errorLabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox searchByEmployeeTypeTextBox;
     }
 }

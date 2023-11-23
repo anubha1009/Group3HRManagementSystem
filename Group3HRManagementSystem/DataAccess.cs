@@ -61,6 +61,51 @@ namespace Group3HRManagementSystem
                 this.CloseConnection();
             }
         }//end get all employees
+        public DataTable JoinQuery(string sqlQuery , CommandType commandType)
+        {
+            DataTable dataTable = new DataTable();
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery,this.GetConnection());
+            sqlCommand.CommandType = commandType;
+            try
+            {
+                this.OpenConnection();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                dataTable.Load(reader);
+                reader.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }finally { this.CloseConnection(); }
+        }
+        public string GetProjectDescription(string sqlQuery, CommandType commandType, string selectedEmployeeIndex)
+        {
+            
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, this.GetConnection());
+            sqlCommand.CommandType = commandType;
+            sqlCommand.Parameters.AddWithValue("@EmployeeId", selectedEmployeeIndex);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Assuming "ProjectDescription" is the column name
+                    string projectDescription = reader["ProjectDescription"].ToString();
+                    return projectDescription;
+                }
+                else
+                {
+                    return "No project description found for the selected employee.";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { this.CloseConnection(); }
+        }
         
 
 

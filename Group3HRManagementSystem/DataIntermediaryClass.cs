@@ -53,6 +53,40 @@ namespace Group3HRManagementSystem
                 return null;
             }
         }//end get employees or project
+       
+        public DataTable GetJoinTable()
+        {
+            DataAccess dataAccess=new DataAccess();
+            string sqlQuery = "SELECT e.EmployeeId, e.EmployeeFirstName, e.EmployeeLastName, p.ProjectName \r\nFROM EMPLOYEE as e \r\nJOIN PROJECT as p ON e.ProjectAllocatedId = p.ProjectId;\r\n";
+            try
+            {
+                return dataAccess.JoinQuery(sqlQuery, CommandType.Text);
+            }
+            catch(Exception ex)
+            {
+                DBError = ex.Message;
+                return null;
+            }
+            
+        }//end join table
+
+        public string GetProjectDescriptionFromEmployeeId(string employeeId)
+        {
+            DataAccess dataAccess = new DataAccess();
+            string sqlQuery = "SELECT p.ProjectDescription " +
+                     "FROM EMPLOYEE AS e " +
+                     "JOIN PROJECT AS p ON e.ProjectAllocatedId = p.ProjectId " +
+                     "WHERE e.EmployeeId = @EmployeeId";
+            try
+            {
+                return dataAccess.GetProjectDescription(sqlQuery,CommandType.Text,employeeId);
+            }catch(Exception ex)
+            {
+                DBError = ex.Message;
+
+                return null;
+            }
+        }
 
     }//end class
 }//end namespace
