@@ -46,5 +46,25 @@ namespace Group3HRManagementSystem
                 MessageBox.Show("Please Enter Either EmployeeName or Employee Id", "Invalid Input", MessageBoxButtons.OK);
             }
         }
+
+        private void ViewEmployees_Load(object sender, EventArgs e)
+        {
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
+            DataTable dataTable = dataIntermediaryClass.GetAllEmployees();
+            viewEmployeeDataGridView.DataSource = dataTable;
+            viewEmployeeDataGridView.AutoResizeColumns();
+            viewEmployeeDataGridView.ScrollBars= ScrollBars.Both;
+            viewEmployeeDataGridView.AllowUserToDeleteRows= false;
+            viewEmployeeDataGridView.AllowUserToAddRows= false;
+            if(dataIntermediaryClass.DBError != null)
+            {
+                errorLabel.Text = dataIntermediaryClass.DBError.ToString();
+            }
+            else
+            {
+                errorLabel.Text = "No Errors are present";
+            }
+
+        }
     }
 }

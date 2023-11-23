@@ -38,6 +38,7 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.projectViewDataGridView = new System.Windows.Forms.DataGridView();
             this.projectViewDescriptionLabel = new System.Windows.Forms.Label();
+            this.errorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.projectViewDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,9 +46,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(306, 37);
+            this.label1.Location = new System.Drawing.Point(272, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(248, 29);
+            this.label1.Size = new System.Drawing.Size(204, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "View Project Details";
             // 
@@ -55,44 +56,41 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(105, 117);
+            this.label2.Location = new System.Drawing.Point(93, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 20);
+            this.label2.Size = new System.Drawing.Size(167, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Search Project By Name";
             // 
             // searchProjectByNameTextBox
             // 
-            this.searchProjectByNameTextBox.Location = new System.Drawing.Point(444, 117);
-            this.searchProjectByNameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchProjectByNameTextBox.Location = new System.Drawing.Point(395, 94);
             this.searchProjectByNameTextBox.Name = "searchProjectByNameTextBox";
-            this.searchProjectByNameTextBox.Size = new System.Drawing.Size(276, 26);
+            this.searchProjectByNameTextBox.Size = new System.Drawing.Size(246, 22);
             this.searchProjectByNameTextBox.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(105, 189);
+            this.label3.Location = new System.Drawing.Point(93, 151);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 20);
+            this.label3.Size = new System.Drawing.Size(93, 16);
             this.label3.TabIndex = 3;
             this.label3.Text = "Search By ID";
             // 
             // searchProjectByIdTextBox
             // 
-            this.searchProjectByIdTextBox.Location = new System.Drawing.Point(444, 186);
-            this.searchProjectByIdTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchProjectByIdTextBox.Location = new System.Drawing.Point(395, 149);
             this.searchProjectByIdTextBox.Name = "searchProjectByIdTextBox";
-            this.searchProjectByIdTextBox.Size = new System.Drawing.Size(276, 26);
+            this.searchProjectByIdTextBox.Size = new System.Drawing.Size(246, 22);
             this.searchProjectByIdTextBox.TabIndex = 4;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(109, 265);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.searchButton.Location = new System.Drawing.Point(96, 190);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(130, 29);
+            this.searchButton.Size = new System.Drawing.Size(116, 23);
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "&Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -100,10 +98,9 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(350, 265);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.clearButton.Location = new System.Drawing.Point(314, 190);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(116, 29);
+            this.clearButton.Size = new System.Drawing.Size(103, 23);
             this.clearButton.TabIndex = 6;
             this.clearButton.Text = "&Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -111,10 +108,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(606, 265);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.exitButton.Location = new System.Drawing.Point(540, 190);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(114, 29);
+            this.exitButton.Size = new System.Drawing.Size(101, 23);
             this.exitButton.TabIndex = 7;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -123,27 +119,36 @@
             // projectViewDataGridView
             // 
             this.projectViewDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.projectViewDataGridView.Location = new System.Drawing.Point(94, 317);
-            this.projectViewDataGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.projectViewDataGridView.Location = new System.Drawing.Point(84, 286);
             this.projectViewDataGridView.Name = "projectViewDataGridView";
             this.projectViewDataGridView.RowHeadersWidth = 51;
             this.projectViewDataGridView.RowTemplate.Height = 24;
-            this.projectViewDataGridView.Size = new System.Drawing.Size(659, 177);
+            this.projectViewDataGridView.Size = new System.Drawing.Size(586, 142);
             this.projectViewDataGridView.TabIndex = 8;
             // 
             // projectViewDescriptionLabel
             // 
             this.projectViewDescriptionLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.projectViewDescriptionLabel.Location = new System.Drawing.Point(94, 518);
+            this.projectViewDescriptionLabel.Location = new System.Drawing.Point(84, 443);
             this.projectViewDescriptionLabel.Name = "projectViewDescriptionLabel";
-            this.projectViewDescriptionLabel.Size = new System.Drawing.Size(659, 148);
+            this.projectViewDescriptionLabel.Size = new System.Drawing.Size(586, 51);
             this.projectViewDescriptionLabel.TabIndex = 9;
+            // 
+            // errorLabel
+            // 
+            this.errorLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.errorLabel.Location = new System.Drawing.Point(84, 237);
+            this.errorLabel.Name = "errorLabel";
+            this.errorLabel.Size = new System.Drawing.Size(586, 23);
+            this.errorLabel.TabIndex = 10;
+            this.errorLabel.Text = "No Error";
             // 
             // Project_View
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1336, 801);
+            this.ClientSize = new System.Drawing.Size(1188, 641);
+            this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.projectViewDescriptionLabel);
             this.Controls.Add(this.projectViewDataGridView);
             this.Controls.Add(this.exitButton);
@@ -154,9 +159,9 @@
             this.Controls.Add(this.searchProjectByNameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Project_View";
             this.Text = "ProjectView";
+            this.Load += new System.EventHandler(this.Project_View_Load);
             ((System.ComponentModel.ISupportInitialize)(this.projectViewDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -175,5 +180,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.DataGridView projectViewDataGridView;
         private System.Windows.Forms.Label projectViewDescriptionLabel;
+        private System.Windows.Forms.Label errorLabel;
     }
 }

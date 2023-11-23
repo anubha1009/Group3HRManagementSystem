@@ -46,5 +46,25 @@ namespace Group3HRManagementSystem
             searchProjectByNameTextBox.Text = string.Empty;
             searchByIdTextBox.Text = string.Empty;  
         }
+
+        private void ProjectView_Load(object sender, EventArgs e)
+        {
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
+            DataTable dataTable = dataIntermediaryClass.GetAllProjects();
+         
+            viewProjectDataGridView.DataSource = dataTable;
+            viewProjectDataGridView.AutoResizeColumns();
+            viewProjectDataGridView.ScrollBars = ScrollBars.Both;
+            viewProjectDataGridView.AllowUserToDeleteRows = false;
+            viewProjectDataGridView.AllowUserToAddRows = false;
+            if (dataIntermediaryClass.DBError != null)
+            {
+                errorLabel.Text = dataIntermediaryClass.DBError.ToString();
+            }
+            else
+            {
+                errorLabel.Text = "No Errors are present";
+            }
+        }
     }
 }

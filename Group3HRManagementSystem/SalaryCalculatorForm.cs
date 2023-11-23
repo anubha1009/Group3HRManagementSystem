@@ -134,9 +134,7 @@ namespace Group3HRManagementSystem
             double duration;
             double payRate;
             double fixedSalary;
-            double salaryPerDay;
-            DateTime contarctStatDate;
-            DateTime contractEndDate;
+            
            double daysWorked;
 
             salaryCalculatorErrorProvider.Clear();

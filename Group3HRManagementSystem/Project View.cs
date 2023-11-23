@@ -45,5 +45,25 @@ namespace Group3HRManagementSystem
                 MessageBox.Show("Please Enter Either ProjectName or Project Id", "Invalid Input", MessageBoxButtons.OK);
             }
         }
+
+        private void Project_View_Load(object sender, EventArgs e)
+        {
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
+            DataTable dataTable = dataIntermediaryClass.GetAllProjects();
+
+            projectViewDataGridView.DataSource = dataTable;
+            projectViewDataGridView.AutoResizeColumns();
+            projectViewDataGridView.ScrollBars = ScrollBars.Both;
+            projectViewDataGridView.AllowUserToDeleteRows = false;
+            projectViewDataGridView.AllowUserToAddRows = false;
+            if (dataIntermediaryClass.DBError != null)
+            {
+                errorLabel.Text = dataIntermediaryClass.DBError.ToString();
+            }
+            else
+            {
+                errorLabel.Text = "No Errors are present";
+            }
+        }
     }
 }
