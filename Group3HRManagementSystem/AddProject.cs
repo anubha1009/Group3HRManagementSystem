@@ -39,6 +39,7 @@ namespace Group3HRManagementSystem
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            addProjectInstance = null;
         }
 
         private void addProjectButton_Click(object sender, EventArgs e)

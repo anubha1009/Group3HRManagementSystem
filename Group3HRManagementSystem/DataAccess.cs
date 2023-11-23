@@ -48,7 +48,7 @@ namespace Group3HRManagementSystem
             {
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, this.GetConnection());
                 this.OpenConnection();
-                sqlDataAdapter.Fill(dataTable);
+                sqlDataAdapter.Fill(dataTable); 
                 return dataTable;
             }
             catch (Exception ex)

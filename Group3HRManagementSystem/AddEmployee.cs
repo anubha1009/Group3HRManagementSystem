@@ -23,6 +23,7 @@ namespace Group3HRManagementSystem
         //step 3 create public static method
         public static AddEmployeeDetails GetSTForm()
         {
+           
             //step 4:instantiate stInstance variable ,if null 
             if (addEmployeeInstance == null)
             {
@@ -119,6 +120,7 @@ namespace Group3HRManagementSystem
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            addEmployeeInstance = null;
         }
     }
 }

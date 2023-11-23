@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+//Created by Neha
 namespace Group3HRManagementSystem
 {
     public partial class Project_View: Form
@@ -22,48 +22,41 @@ namespace Group3HRManagementSystem
             this.Close();
         }
 
-        private void clearButton_Click(object sender, EventArgs e)
-        {
-            searchProjectByNameTextBox.Text = string.Empty;
-            searchProjectByIdTextBox.Text = string.Empty;
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            string projectName;
-            int projectId;
-            projectName = searchProjectByNameTextBox.Text;
-            int.TryParse(searchProjectByIdTextBox.Text, out projectId);
-            if (!(string.IsNullOrEmpty(projectName) && projectId == 0))
-            {
-
-                //write validate method in employee class
-
-            }
-            else
-            {
-                MessageBox.Show("Please Enter Either ProjectName or Project Id", "Invalid Input", MessageBoxButtons.OK);
-            }
-        }
 
         private void Project_View_Load(object sender, EventArgs e)
         {
             DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
             DataTable dataTable = dataIntermediaryClass.GetAllProjects();
+            BindingSource projectbindingSource = new BindingSource();
+            projectbindingSource.DataSource = dataTable;
+            //Databinding for Project
+            budgetLabel.DataBindings.Add("Text", projectbindingSource, "ProjectBudget", false, DataSourceUpdateMode.Never);
+            descriptionLabel.DataBindings.Add("Text", projectbindingSource, "ProjectDescription", false, DataSourceUpdateMode.Never);
+            durationLabel.DataBindings.Add("Text", projectbindingSource, "ProjectHourAllocated", false, DataSourceUpdateMode.Never);
+            //Databinding in combobox
+            projectComboBox.DataSource = projectbindingSource;
+            projectComboBox.ValueMember = "ProjectId";
+            projectComboBox.DisplayMember = "ProjectName";
+            projectComboBox.DataBindings.Add("Text", projectbindingSource, "ProjectName", false, DataSourceUpdateMode.Never);
+           
+        }
 
-            projectViewDataGridView.DataSource = dataTable;
-            projectViewDataGridView.AutoResizeColumns();
-            projectViewDataGridView.ScrollBars = ScrollBars.Both;
-            projectViewDataGridView.AllowUserToDeleteRows = false;
-            projectViewDataGridView.AllowUserToAddRows = false;
-            if (dataIntermediaryClass.DBError != null)
+        private void getEmployeesButton_Click(object sender, EventArgs e)
+        {
+            
+            string projectId = projectComboBox.SelectedValue.ToString();
+            DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
+            employeeListDataGridView.DataSource = intermediaryClass.GetEmployeesForProject(projectId);
+            employeeListDataGridView.AllowUserToAddRows = false;
+            employeeListDataGridView.AllowUserToDeleteRows = false;
+            if(intermediaryClass.DBError != null)
             {
-                errorLabel.Text = dataIntermediaryClass.DBError.ToString();
+                errorLabel.Text = intermediaryClass.DBError.ToString();
             }
             else
             {
-                errorLabel.Text = "No Errors are present";
+                errorLabel.Text = "List of Emp";
             }
         }
-    }
-}
+    }//end class
+}//end namespace

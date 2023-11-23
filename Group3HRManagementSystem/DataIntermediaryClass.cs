@@ -37,5 +37,22 @@ namespace Group3HRManagementSystem
                 return null;
             }
         }//end get all projects method
+
+        public DataTable GetEmployeesForProject(string projectId)
+        {
+            DataAccess dataAccess = new DataAccess();
+            
+            string sqlQuery = $"SELECT * FROM EMPLOYEE WHERE ProjectAllocatedId = {projectId};";
+            Console.WriteLine(sqlQuery);
+            try
+            {
+                return dataAccess.GetAllEmployeesOrProject(sqlQuery);
+            }catch (Exception ex)
+            {
+                DBError = ex.Message;
+                return null;
+            }
+        }//end get employees or project
+
     }//end class
 }//end namespace
