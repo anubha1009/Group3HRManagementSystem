@@ -52,7 +52,7 @@ namespace Group3HRManagementSystem
             double.TryParse(estimatedBudgetTextBox.Text, out estimatedBudget);
             if (ValidateAddProjectForm(projectName, projectHoursAllocated, estimatedBudget, projectDescription))
             {
-
+                //stored proc for insert 
             }
             else
             {
@@ -65,5 +65,5 @@ namespace Group3HRManagementSystem
         {
             throw new NotImplementedException();
         }
-    }
-}
+    }//end class
+}//end namespace

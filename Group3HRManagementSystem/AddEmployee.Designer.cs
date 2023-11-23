@@ -45,6 +45,8 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.addEmployeeValidationErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.exitButton = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.employeeTypeComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.addEmployeeValidationErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,9 +54,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(249, 27);
+            this.label1.Location = new System.Drawing.Point(221, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(224, 25);
+            this.label1.Size = new System.Drawing.Size(194, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Employee Details";
             // 
@@ -62,9 +64,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(169, 84);
+            this.label2.Location = new System.Drawing.Point(150, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 18);
+            this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "FirstName :";
             // 
@@ -72,9 +74,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(169, 134);
+            this.label3.Location = new System.Drawing.Point(150, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 20);
+            this.label3.Size = new System.Drawing.Size(77, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "LastName";
             // 
@@ -82,9 +84,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(169, 191);
+            this.label4.Location = new System.Drawing.Point(150, 169);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 20);
+            this.label4.Size = new System.Drawing.Size(44, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Email";
             // 
@@ -92,9 +94,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(169, 248);
+            this.label5.Location = new System.Drawing.Point(150, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(141, 20);
+            this.label5.Size = new System.Drawing.Size(123, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Contact Number";
             // 
@@ -102,74 +104,81 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(169, 298);
+            this.label6.Location = new System.Drawing.Point(150, 269);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 20);
+            this.label6.Size = new System.Drawing.Size(73, 18);
             this.label6.TabIndex = 5;
             this.label6.Text = "Hire Date";
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(475, 84);
+            this.firstNameTextBox.Location = new System.Drawing.Point(422, 72);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(100, 26);
+            this.firstNameTextBox.Size = new System.Drawing.Size(124, 22);
             this.firstNameTextBox.TabIndex = 6;
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(475, 134);
+            this.lastNameTextBox.Location = new System.Drawing.Point(422, 124);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(100, 26);
+            this.lastNameTextBox.Size = new System.Drawing.Size(124, 22);
             this.lastNameTextBox.TabIndex = 7;
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(475, 188);
+            this.emailTextBox.Location = new System.Drawing.Point(422, 169);
+            this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(100, 26);
+            this.emailTextBox.Size = new System.Drawing.Size(124, 22);
             this.emailTextBox.TabIndex = 8;
             // 
             // contactNumberTextBox
             // 
-            this.contactNumberTextBox.Location = new System.Drawing.Point(475, 248);
+            this.contactNumberTextBox.Location = new System.Drawing.Point(422, 212);
+            this.contactNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contactNumberTextBox.Name = "contactNumberTextBox";
-            this.contactNumberTextBox.Size = new System.Drawing.Size(100, 26);
+            this.contactNumberTextBox.Size = new System.Drawing.Size(124, 22);
             this.contactNumberTextBox.TabIndex = 9;
             // 
             // projectComboBox
             // 
             this.projectComboBox.FormattingEnabled = true;
-            this.projectComboBox.Location = new System.Drawing.Point(475, 333);
+            this.projectComboBox.Location = new System.Drawing.Point(422, 355);
+            this.projectComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projectComboBox.Name = "projectComboBox";
-            this.projectComboBox.Size = new System.Drawing.Size(121, 28);
+            this.projectComboBox.Size = new System.Drawing.Size(124, 24);
             this.projectComboBox.TabIndex = 10;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(169, 341);
+            this.label7.Location = new System.Drawing.Point(150, 355);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 20);
+            this.label7.Size = new System.Drawing.Size(62, 18);
             this.label7.TabIndex = 12;
             this.label7.Text = "Project ";
             // 
             // addEmployeeButton
             // 
-            this.addEmployeeButton.Location = new System.Drawing.Point(173, 386);
+            this.addEmployeeButton.Location = new System.Drawing.Point(153, 402);
+            this.addEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addEmployeeButton.Name = "addEmployeeButton";
-            this.addEmployeeButton.Size = new System.Drawing.Size(125, 36);
+            this.addEmployeeButton.Size = new System.Drawing.Size(111, 29);
             this.addEmployeeButton.TabIndex = 13;
-            this.addEmployeeButton.Text = "Submit";
+            this.addEmployeeButton.Text = "&Submit";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
             this.addEmployeeButton.Click += new System.EventHandler(this.addEmployeeButton_Click);
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(475, 291);
+            this.dateTimePicker1.Location = new System.Drawing.Point(422, 264);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(124, 22);
             this.dateTimePicker1.TabIndex = 14;
             // 
             // addEmployeeValidationErrorProvider
@@ -178,19 +187,39 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(456, 386);
+            this.exitButton.Location = new System.Drawing.Point(422, 402);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(140, 36);
+            this.exitButton.Size = new System.Drawing.Size(124, 29);
             this.exitButton.TabIndex = 15;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(150, 306);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 16);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Employee Type";
+            // 
+            // employeeTypeComboBox
+            // 
+            this.employeeTypeComboBox.FormattingEnabled = true;
+            this.employeeTypeComboBox.Location = new System.Drawing.Point(422, 306);
+            this.employeeTypeComboBox.Name = "employeeTypeComboBox";
+            this.employeeTypeComboBox.Size = new System.Drawing.Size(124, 24);
+            this.employeeTypeComboBox.TabIndex = 17;
+            // 
             // AddEmployeeDetails
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(896, 474);
+            this.Controls.Add(this.employeeTypeComboBox);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.addEmployeeButton);
@@ -206,8 +235,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddEmployeeDetails";
             this.Text = "Add Employee";
+            this.Load += new System.EventHandler(this.AddEmployeeDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addEmployeeValidationErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -232,5 +263,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ErrorProvider addEmployeeValidationErrorProvider;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.ComboBox employeeTypeComboBox;
+        private System.Windows.Forms.Label label8;
     }
 }

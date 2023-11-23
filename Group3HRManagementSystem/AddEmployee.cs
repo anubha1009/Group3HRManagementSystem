@@ -44,9 +44,12 @@ namespace Group3HRManagementSystem
             string lastName = lastNameTextBox.Text;
             string emailId = emailTextBox.Text;
             string contactNumber = contactNumberTextBox.Text;
+            string employeeType = employeeTypeComboBox.SelectedItem.ToString();
+            string projectId = projectComboBox.SelectedValue.ToString();
+            
             if (ValidateAddEmployeeForm(firstName,lastName,emailId,contactNumber))
             {
-
+                //Query for insert 
             }
             else {
                 
@@ -122,5 +125,39 @@ namespace Group3HRManagementSystem
             this.Close();
             addEmployeeInstance = null;
         }
-    }
-}
+        //Added by Anubha Vishwakarma
+        private void AddEmployeeDetails_Load(object sender, EventArgs e)
+        {
+            //FOR EMPLOYEE TYPE COMBO BOX
+            //lambda function to get all the classes that implement IEmployee interface
+            List<string> employeeTypeNames = AppDomain.CurrentDomain.GetAssemblies()
+        .SelectMany(s => s.GetTypes())
+        .Where(p => typeof(IEmployee).IsAssignableFrom(p) && !p.IsInterface)
+        .Select(t => t.Name)
+        .ToList();
+            //Replacing the name for Employee class
+            for (int i = 0; i < employeeTypeNames.Count; i++)
+            {
+                if (employeeTypeNames[i].Equals("EmployeeClass"))
+                {
+                    employeeTypeNames[i] = "SalariedEmployee";
+                }
+            }
+            //assigning value of list to the combobox
+            employeeTypeComboBox.DataSource = employeeTypeNames;
+
+            //FOR PROJECT COMBOBOX
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
+            DataTable dataTable = dataIntermediaryClass.GetAllProjects();
+            BindingSource projectbindingSource = new BindingSource();
+            projectbindingSource.DataSource = dataTable;
+       
+            //Databinding in combobox
+            projectComboBox.DataSource = projectbindingSource;
+            projectComboBox.ValueMember = "ProjectId";
+            projectComboBox.DisplayMember = "ProjectName";
+            projectComboBox.DataBindings.Add("Text", projectbindingSource, "ProjectName", false, DataSourceUpdateMode.Never);
+
+        }//end form load
+    }//end class
+}//end namespoace
