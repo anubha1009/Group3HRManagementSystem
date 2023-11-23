@@ -25,7 +25,7 @@ namespace Group3HRManagementSystem
 
         }
 
-        public double DaysWorked { get; private set; }
+        public double DaysWorked { get;  set; }
 
         public override double CalculatePay()
         {

@@ -158,7 +158,7 @@ namespace Group3HRManagementSystem
                                         HourlyEmployee hourlyEmployee = new HourlyEmployee(hourlyWage, hoursWorked);
                                         SalaryCalculationClass calculator = new SalaryCalculationClass();
                                         double salary = calculator.CalculateEmployeeSalary(hourlyEmployee);
-                                        resultLabel.Text = $"The Calculated Salary for the {hourlyEmployee.GetType().Name} is {salary.ToString()}";
+                                        resultLabel.Text = $"The Calculated Salary for the {hourlyEmployee.GetType().Name} is ${salary.ToString()}";
                                 }
                                 else
                                 {
@@ -176,7 +176,7 @@ namespace Group3HRManagementSystem
                                 SalaryCalculationClass calculator = new SalaryCalculationClass();
                                 salariedEmployee.EmployeeSalary = fixedSalary;
                                 double salary = calculator.CalculateEmployeeSalary(salariedEmployee);
-                                resultLabel.Text = $"The Calculated Salary for the {employeeType} is {salary.ToString()}";
+                                resultLabel.Text = $"The Calculated Salary for the {employeeType} is ${salary.ToString()}";
                             }
                             else
                             {
@@ -195,7 +195,7 @@ namespace Group3HRManagementSystem
                                     TempContractEmployee tempContractEmployee = new TempContractEmployee(duration, payRate);
                                     SalaryCalculationClass calculator = new SalaryCalculationClass();
                                     double salary = calculator.CalculateEmployeeSalary(tempContractEmployee);
-                                    resultLabel.Text = $"The Calculated Salary for the {tempContractEmployee.GetType().Name} is {salary.ToString()}";
+                                    resultLabel.Text = $"The Calculated Salary for the {tempContractEmployee.GetType().Name} is ${salary.ToString()}";
                                 }
                                
                                 else
@@ -210,14 +210,17 @@ namespace Group3HRManagementSystem
                         {
                             if (ValidateDates(contractStartDateTimePicker, contractEndDateTimePicker))
                             {
-                                if(fixedSalary >0)
+                                DateTime startDate = contractStartDateTimePicker.Value;
+                                DateTime endDate = contractEndDateTimePicker.Value;
+                                int numberOfDays = (int)Math.Abs((endDate - startDate).TotalDays);
+                                if (fixedSalary >0)
                                 {
                                     //Calculation for Conmtract Employee
-                                    daysWorked = 0;
+                                    daysWorked = numberOfDays;
                                     ContractEmployee contractEmployee = new ContractEmployee(fixedSalary, daysWorked);
                                     SalaryCalculationClass calculator = new SalaryCalculationClass();
                                     double salary = calculator.CalculateEmployeeSalary(contractEmployee);
-                                    resultLabel.Text = $"The Calculated Salary for the {contractEmployee.GetType().Name} is {salary.ToString()}";
+                                    resultLabel.Text = $"The Calculated Salary for the {contractEmployee.GetType().Name} is ${salary.ToString()}";
                                 }
                                 //Calculation for Conmtract Employee
                                 /*ContractEmployee contractEmployee = new ContractEmployee(fixedSalary);
