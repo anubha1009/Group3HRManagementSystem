@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace Group3HRManagementSystem
 {
@@ -39,21 +40,51 @@ namespace Group3HRManagementSystem
 
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
             addEmployeeValidationErrorProvider.Clear();
             string firstName = firstNameTextBox.Text;
             string lastName = lastNameTextBox.Text;
             string emailId = emailTextBox.Text;
             string contactNumber = contactNumberTextBox.Text;
             string employeeType = employeeTypeComboBox.SelectedItem.ToString();
-            string projectId = projectComboBox.SelectedValue.ToString();
-            
+            int projectId = int.Parse(projectComboBox.SelectedValue.ToString());
+         
+            DateTime employeeHireDate = employeeHireDateTimePicket.Value.Date;
+
             if (ValidateAddEmployeeForm(firstName,lastName,emailId,contactNumber))
             {
                 //Query for insert 
+                try
+                {
+                    if ((dataIntermediaryClass.AddEmployee(firstName, lastName, emailId, contactNumber, employeeHireDate, projectId, employeeType)) != -1)
+                    {
+                        resultLabel.Text = "1 Record Inserted";
+                        //clear controls
+                        firstNameTextBox.Clear();
+                        lastNameTextBox.Clear();
+                        emailTextBox.Clear();
+                        contactNumberTextBox.Clear();
+
+                        // update the datagrid
+
+                        allEmployeeDataGridView.DataSource = dataIntermediaryClass.GetAllEmployees();
+                        allEmployeeDataGridView.AllowUserToAddRows = false;
+                        allEmployeeDataGridView.AllowUserToDeleteRows = false;
+                        allEmployeeDataGridView.ScrollBars = ScrollBars.Both;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insert Failed", "Cannot Complete Operation", MessageBoxButtons.OK);
+                       
+                    }
+
+                }
+                catch (Exception)
+                {
+                    resultLabel.Text = dataIntermediaryClass.DBError;
+                }
             }
-            else {
-                
-            }
+           
             
         }
         private bool ValidateAddEmployeeForm(string firstName, string lastName, string emailId,  string contactNumber)
@@ -130,7 +161,7 @@ namespace Group3HRManagementSystem
         {
             //FOR EMPLOYEE TYPE COMBO BOX
             //lambda function to get all the classes that implement IEmployee interface
-            List<string> employeeTypeNames = AppDomain.CurrentDomain.GetAssemblies()
+         List<string> employeeTypeNames = AppDomain.CurrentDomain.GetAssemblies()
         .SelectMany(s => s.GetTypes())
         .Where(p => typeof(IEmployee).IsAssignableFrom(p) && !p.IsInterface)
         .Select(t => t.Name)
@@ -158,6 +189,17 @@ namespace Group3HRManagementSystem
             projectComboBox.DisplayMember = "ProjectName";
             projectComboBox.DataBindings.Add("Text", projectbindingSource, "ProjectName", false, DataSourceUpdateMode.Never);
 
+            //display all employee details
+
+            allEmployeeDataGridView.DataSource = dataIntermediaryClass.GetAllEmployees();
+            allEmployeeDataGridView.AllowUserToAddRows = false;
+            allEmployeeDataGridView.AllowUserToDeleteRows = false;
+            allEmployeeDataGridView.ScrollBars = ScrollBars.Both;
         }//end form load
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
     }//end class
 }//end namespoace

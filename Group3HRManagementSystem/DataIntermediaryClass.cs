@@ -134,6 +134,36 @@ namespace Group3HRManagementSystem
                 DBError = ex.Message;
                 return -1;
             }
+        }//end Add project
+        public int AddEmployee(string employeeFirstName,string employeeLastName , string employeeEmail , string employeeContact , DateTime employeeHireDate , int projectAllocated, string employeeType)
+        {
+            DataAccess dataAccess = new DataAccess();
+            string sqlQuery = "INSERT INTO EMPLOYEE VALUES (@EmployeeFirstName , @EmployeeLastName , @EmployeeEmail,@EmployeeContactNumber,@EmployeeHireDate,@ProjectAllocatedId,@EmployeeType)";
+            SqlParameter param1 = new SqlParameter("@EmployeeFirstName", SqlDbType.VarChar);
+            SqlParameter param2 = new SqlParameter("@EmployeeLastName", SqlDbType.VarChar);
+            SqlParameter param3 = new SqlParameter("@EmployeeEmail", SqlDbType.VarChar);
+            SqlParameter param4 = new SqlParameter("@EmployeeContactNumber", SqlDbType.VarChar);
+            SqlParameter param5 = new SqlParameter("@EmployeeHireDate", SqlDbType.Date);
+            SqlParameter param6 = new SqlParameter("@ProjectAllocatedId", SqlDbType.Int);
+            SqlParameter param7 = new SqlParameter("@EmployeeType", SqlDbType.VarChar);
+
+            param1.Value = employeeFirstName;
+            param2.Value = employeeLastName;
+            param3.Value = employeeEmail;
+            param4.Value = employeeContact;
+            param5.Value = employeeHireDate;
+            param6.Value = projectAllocated;
+            param7.Value = employeeType;
+            try
+            {
+                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.Text, param1, param2, param3, param4,param5,param6,param7);
+            }
+            catch(Exception ex)
+            {
+                DBError = ex.Message;
+                return -1;
+            }
+
         }
 
     }//end class

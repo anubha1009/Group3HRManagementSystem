@@ -128,7 +128,7 @@ namespace Group3HRManagementSystem
 
         }//end search query
         public int ExecuteNonQuery(string proc, CommandType cmdType, SqlParameter param1 = null,
-            SqlParameter param2 = null, SqlParameter param3 = null, SqlParameter param4 = null, SqlParameter param5 = null)
+            SqlParameter param2 = null, SqlParameter param3 = null, SqlParameter param4 = null, SqlParameter param5 = null, SqlParameter param6=null , SqlParameter param7 =null)
         {
             SqlCommand sqlCommand = new SqlCommand(proc, this.GetConnection());
             sqlCommand.CommandType = cmdType;
@@ -137,6 +137,8 @@ namespace Group3HRManagementSystem
             if (param3 != null) { sqlCommand.Parameters.Add(param3); }
             if (param4 != null) { sqlCommand.Parameters.Add(param4); }
             if (param5 != null) { sqlCommand.Parameters.Add(param5); }
+            if (param6 != null) { sqlCommand.Parameters.Add(param6); }
+            if (param7 != null) { sqlCommand.Parameters.Add(param7); }
             try
             {
                 this.OpenConnection();
@@ -144,9 +146,7 @@ namespace Group3HRManagementSystem
             }
             catch (Exception ex) { throw ex; }
             finally { this.CloseConnection(); sqlCommand.Dispose(); }
-
-
-        }
+        }//end method
 
     }//end Data Access Class
 }//end namespace
