@@ -63,6 +63,12 @@ namespace Group3HRManagementSystem
                         estimatedBudgetTextBox.Clear();
                         projectDescriptionRichTextBox.Clear();
                         hoursAllocatedNumericUpDown.Value = 0;
+                        // update the datagrid
+                      
+                        allProjectDataGridView.DataSource = dataIntermediaryClass.GetAllProjects();
+                        allProjectDataGridView.AllowUserToAddRows = false;
+                        allProjectDataGridView.AllowUserToDeleteRows = false;
+                        allProjectDataGridView.ScrollBars = ScrollBars.Both;
                     }
                     else
                     {
@@ -120,5 +126,14 @@ namespace Group3HRManagementSystem
 
             return isValid;
         }//end validate function
+
+        private void AddProjectDetails_Load(object sender, EventArgs e)
+        {
+            DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
+            allProjectDataGridView.DataSource = intermediaryClass.GetAllProjects();
+            allProjectDataGridView.AllowUserToAddRows = false;
+            allProjectDataGridView.AllowUserToDeleteRows = false;
+            allProjectDataGridView.ScrollBars = ScrollBars.Both;
+        }
     }//end class
 }//end namespace

@@ -42,8 +42,10 @@
             this.exitButton = new System.Windows.Forms.Button();
             this.addProjectDetailsErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.resultLabel = new System.Windows.Forms.Label();
+            this.allProjectDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.hoursAllocatedNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProjectDetailsErrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allProjectDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +62,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(162, 62);
+            this.label2.Location = new System.Drawing.Point(33, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 18);
             this.label2.TabIndex = 1;
@@ -70,7 +72,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(162, 114);
+            this.label3.Location = new System.Drawing.Point(33, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 18);
             this.label3.TabIndex = 2;
@@ -80,7 +82,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MS Reference Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(162, 166);
+            this.label4.Location = new System.Drawing.Point(33, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(134, 18);
             this.label4.TabIndex = 3;
@@ -89,7 +91,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(162, 221);
+            this.label5.Location = new System.Drawing.Point(33, 206);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 16);
             this.label5.TabIndex = 4;
@@ -97,7 +99,7 @@
             // 
             // addProjectButton
             // 
-            this.addProjectButton.Location = new System.Drawing.Point(165, 363);
+            this.addProjectButton.Location = new System.Drawing.Point(36, 362);
             this.addProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addProjectButton.Name = "addProjectButton";
             this.addProjectButton.Size = new System.Drawing.Size(145, 34);
@@ -108,40 +110,40 @@
             // 
             // projectNameTextBox
             // 
-            this.projectNameTextBox.Location = new System.Drawing.Point(373, 62);
+            this.projectNameTextBox.Location = new System.Drawing.Point(241, 62);
             this.projectNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projectNameTextBox.Name = "projectNameTextBox";
-            this.projectNameTextBox.Size = new System.Drawing.Size(304, 22);
+            this.projectNameTextBox.Size = new System.Drawing.Size(191, 22);
             this.projectNameTextBox.TabIndex = 6;
             // 
             // estimatedBudgetTextBox
             // 
-            this.estimatedBudgetTextBox.Location = new System.Drawing.Point(373, 161);
+            this.estimatedBudgetTextBox.Location = new System.Drawing.Point(241, 157);
             this.estimatedBudgetTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.estimatedBudgetTextBox.Name = "estimatedBudgetTextBox";
-            this.estimatedBudgetTextBox.Size = new System.Drawing.Size(304, 22);
+            this.estimatedBudgetTextBox.Size = new System.Drawing.Size(191, 22);
             this.estimatedBudgetTextBox.TabIndex = 7;
             // 
             // hoursAllocatedNumericUpDown
             // 
-            this.hoursAllocatedNumericUpDown.Location = new System.Drawing.Point(373, 112);
+            this.hoursAllocatedNumericUpDown.Location = new System.Drawing.Point(241, 108);
             this.hoursAllocatedNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hoursAllocatedNumericUpDown.Name = "hoursAllocatedNumericUpDown";
-            this.hoursAllocatedNumericUpDown.Size = new System.Drawing.Size(304, 22);
+            this.hoursAllocatedNumericUpDown.Size = new System.Drawing.Size(191, 22);
             this.hoursAllocatedNumericUpDown.TabIndex = 9;
             // 
             // projectDescriptionRichTextBox
             // 
-            this.projectDescriptionRichTextBox.Location = new System.Drawing.Point(373, 206);
+            this.projectDescriptionRichTextBox.Location = new System.Drawing.Point(241, 206);
             this.projectDescriptionRichTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.projectDescriptionRichTextBox.Name = "projectDescriptionRichTextBox";
-            this.projectDescriptionRichTextBox.Size = new System.Drawing.Size(304, 84);
+            this.projectDescriptionRichTextBox.Size = new System.Drawing.Size(191, 84);
             this.projectDescriptionRichTextBox.TabIndex = 11;
             this.projectDescriptionRichTextBox.Text = "";
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(373, 363);
+            this.exitButton.Location = new System.Drawing.Point(296, 362);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(136, 33);
@@ -156,17 +158,28 @@
             // 
             // resultLabel
             // 
-            this.resultLabel.AutoSize = true;
-            this.resultLabel.Location = new System.Drawing.Point(165, 321);
+            this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.resultLabel.Location = new System.Drawing.Point(36, 316);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(0, 16);
+            this.resultLabel.Size = new System.Drawing.Size(396, 34);
             this.resultLabel.TabIndex = 13;
+            // 
+            // allProjectDataGridView
+            // 
+            this.allProjectDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.allProjectDataGridView.Location = new System.Drawing.Point(468, 62);
+            this.allProjectDataGridView.Name = "allProjectDataGridView";
+            this.allProjectDataGridView.RowHeadersWidth = 51;
+            this.allProjectDataGridView.RowTemplate.Height = 24;
+            this.allProjectDataGridView.Size = new System.Drawing.Size(352, 333);
+            this.allProjectDataGridView.TabIndex = 14;
             // 
             // AddProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 426);
+            this.ClientSize = new System.Drawing.Size(860, 426);
+            this.Controls.Add(this.allProjectDataGridView);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.projectDescriptionRichTextBox);
@@ -182,8 +195,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddProjectDetails";
             this.Text = "Add Project";
+            this.Load += new System.EventHandler(this.AddProjectDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.hoursAllocatedNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProjectDetailsErrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.allProjectDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +219,6 @@
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.ErrorProvider addProjectDetailsErrorProvider;
         private System.Windows.Forms.Label resultLabel;
+        private System.Windows.Forms.DataGridView allProjectDataGridView;
     }
 }
