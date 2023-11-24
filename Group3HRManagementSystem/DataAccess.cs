@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -126,10 +127,26 @@ namespace Group3HRManagementSystem
             finally { this.CloseConnection(); }
 
         }//end search query
-        
+        public int ExecuteNonQuery(string proc, CommandType cmdType, SqlParameter param1 = null,
+            SqlParameter param2 = null, SqlParameter param3 = null, SqlParameter param4 = null, SqlParameter param5 = null)
+        {
+            SqlCommand sqlCommand = new SqlCommand(proc, this.GetConnection());
+            sqlCommand.CommandType = cmdType;
+            if (param1 != null) { sqlCommand.Parameters.Add(param1); }
+            if (param2 != null) { sqlCommand.Parameters.Add(param2); }
+            if (param3 != null) { sqlCommand.Parameters.Add(param3); }
+            if (param4 != null) { sqlCommand.Parameters.Add(param4); }
+            if (param5 != null) { sqlCommand.Parameters.Add(param5); }
+            try
+            {
+                this.OpenConnection();
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { this.CloseConnection(); sqlCommand.Dispose(); }
 
 
-
+        }
 
     }//end Data Access Class
 }//end namespace

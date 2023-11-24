@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -111,6 +111,28 @@ namespace Group3HRManagementSystem
             {
                 DBError = ex.Message;
                 return null;
+            }
+        }//end method
+        public int AddProject(string projectName, int projectHourAllocated, double projectBudget, string projectDescription)
+        {
+            DataAccess dataAccess=new DataAccess();
+            string sqlQuery = "INSERT INTO PROJECT VALUES (@ProjectName , @ProjectHourAllocated , @ProjectBudget,@ProjectDescription)";
+            SqlParameter param1 = new SqlParameter("@ProjectName", SqlDbType.VarChar);
+            SqlParameter param2 = new SqlParameter("@ProjectHourAllocated" , SqlDbType.Int);
+            SqlParameter param3 = new SqlParameter("@ProjectBudget", SqlDbType.NVarChar);
+            SqlParameter param4 = new SqlParameter("@ProjectDescription", SqlDbType.NVarChar);
+            param1.Value = projectName;
+            param2.Value = projectHourAllocated;
+            param3.Value = projectBudget;
+            param4.Value = projectDescription;
+            try
+            {
+                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.Text,param1,param2,param3,param4);
+            }
+            catch(Exception ex)
+            {
+                DBError = ex.Message;
+                return -1;
             }
         }
 

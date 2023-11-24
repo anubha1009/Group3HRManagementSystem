@@ -41,6 +41,7 @@
             this.projectDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.exitButton = new System.Windows.Forms.Button();
             this.addProjectDetailsErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.resultLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hoursAllocatedNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addProjectDetailsErrorProvider)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +97,7 @@
             // 
             // addProjectButton
             // 
-            this.addProjectButton.Location = new System.Drawing.Point(165, 299);
+            this.addProjectButton.Location = new System.Drawing.Point(165, 363);
             this.addProjectButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addProjectButton.Name = "addProjectButton";
             this.addProjectButton.Size = new System.Drawing.Size(145, 34);
@@ -140,7 +141,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(373, 299);
+            this.exitButton.Location = new System.Drawing.Point(373, 363);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(136, 33);
@@ -153,11 +154,20 @@
             // 
             this.addProjectDetailsErrorProvider.ContainerControl = this;
             // 
+            // resultLabel
+            // 
+            this.resultLabel.AutoSize = true;
+            this.resultLabel.Location = new System.Drawing.Point(165, 321);
+            this.resultLabel.Name = "resultLabel";
+            this.resultLabel.Size = new System.Drawing.Size(0, 16);
+            this.resultLabel.TabIndex = 13;
+            // 
             // AddProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(711, 360);
+            this.ClientSize = new System.Drawing.Size(711, 426);
+            this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.projectDescriptionRichTextBox);
             this.Controls.Add(this.hoursAllocatedNumericUpDown);
@@ -193,5 +203,6 @@
         private System.Windows.Forms.RichTextBox projectDescriptionRichTextBox;
         private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.ErrorProvider addProjectDetailsErrorProvider;
+        private System.Windows.Forms.Label resultLabel;
     }
 }

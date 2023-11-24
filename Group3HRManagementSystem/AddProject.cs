@@ -44,26 +44,81 @@ namespace Group3HRManagementSystem
 
         private void addProjectButton_Click(object sender, EventArgs e)
         {
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
             addProjectDetailsErrorProvider.Clear();
             string projectName=projectNameTextBox.Text;
-            decimal projectHoursAllocated = hoursAllocatedNumericUpDown.Value;
+            decimal projectHourAllocated = hoursAllocatedNumericUpDown.Value;
             double estimatedBudget;
             string projectDescription=projectDescriptionRichTextBox.Text;
             double.TryParse(estimatedBudgetTextBox.Text, out estimatedBudget);
-            if (ValidateAddProjectForm(projectName, projectHoursAllocated, estimatedBudget, projectDescription))
+            if (ValidateAddProjectForm(projectName, projectHourAllocated, estimatedBudget, projectDescription))
             {
-                //stored proc for insert 
+                try
+                {
+                    if ((dataIntermediaryClass.AddProject(projectName, (int)projectHourAllocated, estimatedBudget, projectDescription)) != -1)
+                    {
+                        resultLabel.Text = "1 Record Inserted";
+                        //clear controls
+                        projectNameTextBox.Clear();
+                        estimatedBudgetTextBox.Clear();
+                        projectDescriptionRichTextBox.Clear();
+                        hoursAllocatedNumericUpDown.Value = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Insert Failed");
+                    }
+
+                }catch(Exception)
+                {
+                    resultLabel.Text = dataIntermediaryClass.DBError;
+                }
             }
             else
             {
-
+                MessageBox.Show("The Fields Cannot be Validated", "Field Error", MessageBoxButtons.OK);
             }
 
-        }
+        }//end add project
 
         private bool ValidateAddProjectForm(string projectName, decimal projectHoursAllocated, double estimatedBudget, string projectDescription)
         {
-            throw new NotImplementedException();
-        }
+            bool isValid = true;
+
+            // Validate Project Name
+            if (string.IsNullOrWhiteSpace(projectName))
+            {
+                addProjectDetailsErrorProvider.SetError(projectNameTextBox, "Project name is required");
+                isValid = false;
+            }
+            else
+            {
+                addProjectDetailsErrorProvider.SetError(projectNameTextBox, null);
+            }
+
+            // Validate Project Hours Allocated
+            if (projectHoursAllocated <= 0)
+            {
+                addProjectDetailsErrorProvider.SetError(hoursAllocatedNumericUpDown, "Project hours allocated must be greater than 0");
+                isValid = false;
+            }
+            else
+            {
+                addProjectDetailsErrorProvider.SetError(hoursAllocatedNumericUpDown, null);
+            }
+
+            // Validate Estimated Budget
+            if (estimatedBudget <= 0)
+            {
+                addProjectDetailsErrorProvider.SetError(estimatedBudgetTextBox, "Estimated budget must be greater than 0");
+                isValid = false;
+            }
+            else
+            {
+                addProjectDetailsErrorProvider.SetError(estimatedBudgetTextBox, null);
+            }
+
+            return isValid;
+        }//end validate function
     }//end class
 }//end namespace
