@@ -40,7 +40,9 @@
             this.employeeDescriptionLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.searchByEmployeeTypeTextBox = new System.Windows.Forms.TextBox();
+            this.employeeTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.OR = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.viewEmployeeDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,19 +156,43 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Search By  Employee Type";
             // 
-            // searchByEmployeeTypeTextBox
+            // employeeTypeComboBox
             // 
-            this.searchByEmployeeTypeTextBox.Location = new System.Drawing.Point(640, 89);
-            this.searchByEmployeeTypeTextBox.Name = "searchByEmployeeTypeTextBox";
-            this.searchByEmployeeTypeTextBox.Size = new System.Drawing.Size(198, 22);
-            this.searchByEmployeeTypeTextBox.TabIndex = 12;
+            this.employeeTypeComboBox.FormattingEnabled = true;
+            this.employeeTypeComboBox.Location = new System.Drawing.Point(640, 86);
+            this.employeeTypeComboBox.Name = "employeeTypeComboBox";
+            this.employeeTypeComboBox.Size = new System.Drawing.Size(198, 24);
+            this.employeeTypeComboBox.TabIndex = 12;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Enabled = false;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label5.Location = new System.Drawing.Point(329, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "OR";
+            // 
+            // OR
+            // 
+            this.OR.AutoSize = true;
+            this.OR.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.OR.Location = new System.Drawing.Point(594, 88);
+            this.OR.Name = "OR";
+            this.OR.Size = new System.Drawing.Size(27, 16);
+            this.OR.TabIndex = 14;
+            this.OR.Text = "OR";
             // 
             // ViewEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(924, 558);
-            this.Controls.Add(this.searchByEmployeeTypeTextBox);
+            this.Controls.Add(this.OR);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.employeeTypeComboBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.employeeDescriptionLabel);
@@ -202,6 +228,8 @@
         private System.Windows.Forms.Label employeeDescriptionLabel;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox searchByEmployeeTypeTextBox;
+        private System.Windows.Forms.ComboBox employeeTypeComboBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label OR;
     }
 }

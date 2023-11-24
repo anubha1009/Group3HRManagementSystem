@@ -105,7 +105,27 @@ namespace Group3HRManagementSystem
                 throw ex;
             }
             finally { this.CloseConnection(); }
-        }
+        }//end getProjectDescription
+        public DataTable SearchQuery(string sqlQuery,CommandType cmdType , SqlParameter param1=null , SqlParameter param2=null,SqlParameter param3=null)
+        {
+            SqlCommand sqlCommand = new SqlCommand (sqlQuery, this.GetConnection());
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            sqlCommand.CommandType = cmdType;
+             sqlCommand.Parameters.Add(param1);
+           sqlCommand.Parameters.Add(param2);
+           sqlCommand.Parameters.Add(param3);
+
+            dataAdapter.SelectCommand = sqlCommand;
+            try
+            {
+                this.OpenConnection();
+                dataAdapter.Fill(ds);
+                return ds.Tables[0];
+            }catch (Exception ex) { throw ex; }
+            finally { this.CloseConnection(); }
+
+        }//end search query
         
 
 

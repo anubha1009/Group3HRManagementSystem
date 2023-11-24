@@ -32,14 +32,9 @@ namespace Group3HRManagementSystem
             searchByEmployeeIdTextBox.Text = string.Empty;
             employeeDescriptionLabel.Text = string.Empty;
             // Clear button clicked, enable all text boxes
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    textBox.Enabled = true;
-                }
-            }
-            lastFocusedTextBox = null; // Reset lastFocusedTextBox
+            DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
+            viewEmployeeDataGridView.DataSource = intermediaryClass.GetJoinTable();
+           
 
         }
 
@@ -47,17 +42,27 @@ namespace Group3HRManagementSystem
         {
             string employeeName;
             int employeeId;
-            employeeName= searchByEmployeeNameTextBox.Text;
+            string employeeType;
+            employeeName = searchByEmployeeNameTextBox.Text;
+          
+           
+          
+                employeeType=employeeTypeComboBox.SelectedItem.ToString();
+            
+
             int.TryParse(searchByEmployeeIdTextBox.Text, out employeeId);
-            if(!(string.IsNullOrEmpty(employeeName)&& employeeId==0)) {
-
-                //write validate method in employee class
-
-            }
-            else
+                DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
+                viewEmployeeDataGridView.DataSource = intermediaryClass.SearchEmployee(employeeId, employeeName, employeeType);
+                viewEmployeeDataGridView.AllowUserToAddRows= false;
+                viewEmployeeDataGridView.AllowUserToDeleteRows= false;
+            if (intermediaryClass.DBError != null)
             {
-                MessageBox.Show("Please Enter Either EmployeeName or Employee Id", "Invalid Input", MessageBoxButtons.OK);
+                errorLabel.Text = intermediaryClass.DBError.ToString();
             }
+            
+
+            
+            
         }
         //Written by Anubha Vishwakarma
         private void ViewEmployees_Load(object sender, EventArgs e)
@@ -77,26 +82,26 @@ namespace Group3HRManagementSystem
             {
                 errorLabel.Text = "Please select the Employee to view full details ";
             }
-            
-            // Enable all text boxes initially
-            foreach (Control control in this.Controls)
+            //FOR EMPLOYEE TYPE COMBO BOX
+            //lambda function to get all the classes that implement IEmployee interface
+           
+            List<string> employeeTypeNames = AppDomain.CurrentDomain.GetAssemblies()
+                                               .SelectMany(s => s.GetTypes())
+                                               .Where(p => typeof(IEmployee).IsAssignableFrom(p) && !p.IsInterface)
+                                               .Select(t => t.Name)
+                                               .ToList();
+            employeeTypeNames.Add("- No Selection -");
+            //Replacing the name for Employee class
+            for (int i = 0; i < employeeTypeNames.Count; i++)
             {
-                if (control is TextBox textBox)
+                if (employeeTypeNames[i].Equals("EmployeeClass"))
                 {
-                    textBox.Enabled = true;
+                    employeeTypeNames[i] = "SalariedEmployee";
                 }
             }
+            //assigning value of list to the combobox
+            employeeTypeComboBox.DataSource = employeeTypeNames;
 
-            // Attach the event handler to all text boxes in the form
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox textBox)
-                {
-                    textBox.GotFocus += TextBox_GotFocus;
-                }
-            }
-            //For selection
-            
 
         }//end view employee
         //handeling selection change
