@@ -74,29 +74,28 @@ namespace Group3HRManagementSystem
         public string GetProjectDescriptionFromEmployeeId(string employeeId)
         {
             DataAccess dataAccess = new DataAccess();
-            string sqlQuery = "SELECT p.ProjectDescription " +
-                     "FROM EMPLOYEE AS e " +
-                     "JOIN PROJECT AS p ON e.ProjectAllocatedId = p.ProjectId " +
-                     "WHERE e.EmployeeId = @EmployeeId";
+            string sqlQuery = "GetProjectDescriptionFromEmployeeId";
             try
             {
-                return dataAccess.GetProjectDescription(sqlQuery,CommandType.Text,employeeId);
+                return dataAccess.GetProjectDescription(sqlQuery,CommandType.StoredProcedure, employeeId);
             }catch(Exception ex)
             {
                 DBError = ex.Message;
 
                 return null;
             }
-        }
+        }//end function
         public DataTable SearchEmployee(int employeeId , string employeeName , string employeeType)
         {
             DataAccess dataAccess = new DataAccess();
-            string sqlQuery = "SELECT e.EmployeeId, e.EmployeeFirstName, e.EmployeeLastName, e.EmployeeType, p.ProjectName " +
-            "FROM EMPLOYEE as e " +
-            "JOIN PROJECT as p ON e.ProjectAllocatedId = p.ProjectId " +
-            "WHERE (@EmployeeId IS NULL OR e.EmployeeId = @EmployeeId) " +
-            "OR (@EmployeeFirstName IS NULL OR e.EmployeeFirstName = @EmployeeFirstName) " +
-            "OR (@EmployeeType IS NULL OR e.EmployeeType = @EmployeeType);";
+            /* string sqlQuery = "SELECT e.EmployeeId, e.EmployeeFirstName, e.EmployeeLastName, e.EmployeeType, p.ProjectName " +
+             "FROM EMPLOYEE as e " +
+             "JOIN PROJECT as p ON e.ProjectAllocatedId = p.ProjectId " +
+             "WHERE (@EmployeeId IS NULL OR e.EmployeeId = @EmployeeId) " +
+             "OR (@EmployeeFirstName IS NULL OR e.EmployeeFirstName = @EmployeeFirstName) " +
+             "OR (@EmployeeType IS NULL OR e.EmployeeType = @EmployeeType);";*/
+
+            string sqlQuery = "SearchEmployee";
 
             SqlParameter param1 = new SqlParameter("@EmployeeId", SqlDbType.Int);
             param1.Value = employeeId;
@@ -106,7 +105,7 @@ namespace Group3HRManagementSystem
             param3.Value = employeeType;
             try
             {
-                return dataAccess.SearchQuery(sqlQuery,CommandType.Text,param1,param2,param3);
+                return dataAccess.SearchQuery(sqlQuery,CommandType.StoredProcedure,param1,param2,param3);
             }catch(Exception ex)
             {
                 DBError = ex.Message;
@@ -116,7 +115,9 @@ namespace Group3HRManagementSystem
         public int AddProject(string projectName, int projectHourAllocated, double projectBudget, string projectDescription)
         {
             DataAccess dataAccess=new DataAccess();
-            string sqlQuery = "INSERT INTO PROJECT VALUES (@ProjectName , @ProjectHourAllocated , @ProjectBudget,@ProjectDescription)";
+            // string sqlQuery = "INSERT INTO PROJECT VALUES (@ProjectName , @ProjectHourAllocated , @ProjectBudget,@ProjectDescription)";
+            //using stored Procedure
+            string sqlQuery = "AddProject";
             SqlParameter param1 = new SqlParameter("@ProjectName", SqlDbType.VarChar);
             SqlParameter param2 = new SqlParameter("@ProjectHourAllocated" , SqlDbType.Int);
             SqlParameter param3 = new SqlParameter("@ProjectBudget", SqlDbType.NVarChar);
@@ -127,7 +128,7 @@ namespace Group3HRManagementSystem
             param4.Value = projectDescription;
             try
             {
-                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.Text,param1,param2,param3,param4);
+                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.StoredProcedure,param1,param2,param3,param4);
             }
             catch(Exception ex)
             {
@@ -138,7 +139,9 @@ namespace Group3HRManagementSystem
         public int AddEmployee(string employeeFirstName,string employeeLastName , string employeeEmail , string employeeContact , DateTime employeeHireDate , int projectAllocated, string employeeType)
         {
             DataAccess dataAccess = new DataAccess();
-            string sqlQuery = "INSERT INTO EMPLOYEE VALUES (@EmployeeFirstName , @EmployeeLastName , @EmployeeEmail,@EmployeeContactNumber,@EmployeeHireDate,@ProjectAllocatedId,@EmployeeType)";
+            // string sqlQuery = "INSERT INTO EMPLOYEE VALUES (@EmployeeFirstName , @EmployeeLastName , @EmployeeEmail,@EmployeeContactNumber,@EmployeeHireDate,@ProjectAllocatedId,@EmployeeType)";
+            string sqlQuery = "AddEmployee";
+            
             SqlParameter param1 = new SqlParameter("@EmployeeFirstName", SqlDbType.VarChar);
             SqlParameter param2 = new SqlParameter("@EmployeeLastName", SqlDbType.VarChar);
             SqlParameter param3 = new SqlParameter("@EmployeeEmail", SqlDbType.VarChar);
@@ -156,7 +159,7 @@ namespace Group3HRManagementSystem
             param7.Value = employeeType;
             try
             {
-                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.Text, param1, param2, param3, param4,param5,param6,param7);
+                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.StoredProcedure, param1, param2, param3, param4,param5,param6,param7);
             }
             catch(Exception ex)
             {

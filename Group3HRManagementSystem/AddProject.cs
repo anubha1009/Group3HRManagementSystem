@@ -72,6 +72,7 @@ namespace Group3HRManagementSystem
                     }
                     else
                     {
+                        Console.WriteLine(dataIntermediaryClass.DBError);
                         MessageBox.Show("Insert Failed");
                     }
 
