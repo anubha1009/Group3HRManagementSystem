@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Group3HRManagementSystem")]
-[assembly: AssemblyDescription("HRManagmentSystem")]
+[assembly: AssemblyDescription("HRManagmentSystem Made by Group3 : Anubha Vishwakarma, Vineela Pendam and Neha Tuniki for Advanced Application Development using C# class.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("HRManagementSystem")]
