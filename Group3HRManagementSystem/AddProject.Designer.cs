@@ -128,6 +128,11 @@
             // 
             this.hoursAllocatedNumericUpDown.Location = new System.Drawing.Point(241, 108);
             this.hoursAllocatedNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.hoursAllocatedNumericUpDown.Maximum = new decimal(new int[] {
+            4000,
+            0,
+            0,
+            0});
             this.hoursAllocatedNumericUpDown.Name = "hoursAllocatedNumericUpDown";
             this.hoursAllocatedNumericUpDown.Size = new System.Drawing.Size(191, 22);
             this.hoursAllocatedNumericUpDown.TabIndex = 9;
