@@ -55,7 +55,8 @@ namespace Group3HRManagementSystem
             }
             else
             {
-                errorLabel.Text = "List of Emp";
+                int rowCount = employeeListDataGridView.Rows.Count;
+                errorLabel.Text = $"The {projectComboBox.Text} has {rowCount} employees working.";
             }
         }
     }//end class

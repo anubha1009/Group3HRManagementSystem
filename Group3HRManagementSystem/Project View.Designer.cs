@@ -101,7 +101,8 @@
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(711, 23);
             this.errorLabel.TabIndex = 10;
-            this.errorLabel.Text = "No Error";
+            this.errorLabel.Text = "Please click on Get Employees button to see all the employees working under the s" +
+    "elected project.";
             // 
             // projectComboBox
             // 
@@ -116,9 +117,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(274, 163);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 16);
+            this.label3.Size = new System.Drawing.Size(99, 16);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Duration";
+            this.label3.Text = "Duration (in hrs)";
             // 
             // durationLabel
             // 
@@ -166,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1188, 641);
+            this.ClientSize = new System.Drawing.Size(854, 624);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.budgetLabel);
