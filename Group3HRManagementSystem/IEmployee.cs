@@ -16,6 +16,6 @@ namespace Group3HRManagementSystem
         DateTime EmployeeHireDate { get; set; }
         double EmployeeSalary { get; set; }
 
-        double CalculatePay();
+        double CalculatePay(); //OVERRIDDEN IN CLASSES
     }//end interface
 }//end namespace

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 //Created By Anubha Vishwakarma
 namespace Group3HRManagementSystem
 {
+    //EXAMPLE OF CO VARIANCE
     internal class Project : IEnumerable<Project>
     {
         public int ProjectId { get; set; }

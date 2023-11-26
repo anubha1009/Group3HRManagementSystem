@@ -18,16 +18,16 @@ namespace Group3HRManagementSystem
         {
             this.HourlyWage = wage;
             this.HoursWorked = hoursWorked;
-        }
+        }//end ctor
 
-
+        //properties
         public double HourlyWage { get; set; }
         public double HoursWorked { get; set; }
 
         public override double CalculatePay()
         {
             return HourlyWage * HoursWorked;
-        }
+        }//end calculate pay
 
 
     }//end Class
