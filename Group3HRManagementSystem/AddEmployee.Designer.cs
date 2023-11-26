@@ -49,7 +49,10 @@
             this.employeeTypeComboBox = new System.Windows.Forms.ComboBox();
             this.allEmployeeDataGridView = new System.Windows.Forms.DataGridView();
             this.resultLabel = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.payRateTextBox = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.gradeComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.addEmployeeValidationErrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allEmployeeDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +61,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(327, 20);
+            this.label1.Location = new System.Drawing.Point(471, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(194, 20);
             this.label1.TabIndex = 0;
@@ -167,7 +170,7 @@
             // 
             // addEmployeeButton
             // 
-            this.addEmployeeButton.Location = new System.Drawing.Point(47, 418);
+            this.addEmployeeButton.Location = new System.Drawing.Point(47, 485);
             this.addEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addEmployeeButton.Name = "addEmployeeButton";
             this.addEmployeeButton.Size = new System.Drawing.Size(111, 29);
@@ -191,7 +194,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(225, 418);
+            this.exitButton.Location = new System.Drawing.Point(189, 485);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(124, 29);
@@ -220,30 +223,68 @@
             // allEmployeeDataGridView
             // 
             this.allEmployeeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.allEmployeeDataGridView.Location = new System.Drawing.Point(411, 72);
+            this.allEmployeeDataGridView.Location = new System.Drawing.Point(365, 72);
             this.allEmployeeDataGridView.Name = "allEmployeeDataGridView";
             this.allEmployeeDataGridView.RowHeadersWidth = 51;
             this.allEmployeeDataGridView.RowTemplate.Height = 24;
-            this.allEmployeeDataGridView.Size = new System.Drawing.Size(442, 301);
+            this.allEmployeeDataGridView.Size = new System.Drawing.Size(1126, 392);
             this.allEmployeeDataGridView.TabIndex = 18;
             // 
             // resultLabel
             // 
             this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.resultLabel.Location = new System.Drawing.Point(408, 418);
+            this.resultLabel.Location = new System.Drawing.Point(365, 491);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(445, 23);
+            this.resultLabel.Size = new System.Drawing.Size(1126, 23);
             this.resultLabel.TabIndex = 19;
             // 
-            // backgroundWorker1
+            // payRateTextBox
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.payRateTextBox.Location = new System.Drawing.Point(185, 399);
+            this.payRateTextBox.Name = "payRateTextBox";
+            this.payRateTextBox.Size = new System.Drawing.Size(122, 22);
+            this.payRateTextBox.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 405);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(86, 16);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Pay Rate(/hr)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(43, 448);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 16);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Performance Grade";
+            // 
+            // gradeComboBox
+            // 
+            this.gradeComboBox.FormattingEnabled = true;
+            this.gradeComboBox.Items.AddRange(new object[] {
+            "Not Applicable",
+            "A",
+            "B",
+            "C"});
+            this.gradeComboBox.Location = new System.Drawing.Point(189, 445);
+            this.gradeComboBox.Name = "gradeComboBox";
+            this.gradeComboBox.Size = new System.Drawing.Size(118, 24);
+            this.gradeComboBox.TabIndex = 24;
             // 
             // AddEmployeeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(896, 474);
+            this.ClientSize = new System.Drawing.Size(1574, 547);
+            this.Controls.Add(this.gradeComboBox);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.payRateTextBox);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.allEmployeeDataGridView);
             this.Controls.Add(this.employeeTypeComboBox);
@@ -296,6 +337,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label resultLabel;
         private System.Windows.Forms.DataGridView allEmployeeDataGridView;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox payRateTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox gradeComboBox;
     }
 }

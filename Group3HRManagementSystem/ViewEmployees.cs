@@ -8,6 +8,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Group3HRManagementSystem
 {
@@ -15,11 +16,32 @@ namespace Group3HRManagementSystem
     public partial class ViewEmployees : Form
     {
         private TextBox lastFocusedTextBox;
+        private List<Project> allProjects;
+        private string employeeId;
 
         public ViewEmployees()
         {
             InitializeComponent();
-        }
+            //Storing all the projects in a list
+            DataTable allProjectsDataTable = this.getAllProjects();
+            allProjects = new List<Project>();
+            foreach(DataRow row in allProjectsDataTable.Rows)
+            {
+                Project project = new Project
+                {
+                    ProjectId = Convert.ToInt32(row["ProjectId"]),
+                    Name = row["ProjectName"].ToString(),
+                    Description = row["ProjectDescription"].ToString(),
+                    HoursAllocated = Convert.ToInt32(row["ProjectHourAllocated"]),
+                    Budget = Convert.ToDouble(row["ProjectBudget"])
+                };
+                allProjects.Add(project);
+            }//end foreach 
+            //disable update group box
+           
+            updateEmployeeDetailsGroupBox.Enabled = false;
+
+        }//end ctor
 
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -34,8 +56,8 @@ namespace Group3HRManagementSystem
             // Clear button clicked, enable all text boxes
             DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
             viewEmployeeDataGridView.DataSource = intermediaryClass.GetJoinTable();
-           
 
+            updateEmployeeDetailsGroupBox.Enabled = false;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -43,13 +65,8 @@ namespace Group3HRManagementSystem
             string employeeName;
             int employeeId;
             string employeeType;
-            employeeName = searchByEmployeeNameTextBox.Text;
-          
-           
-          
+            employeeName = searchByEmployeeNameTextBox.Text; 
                 employeeType=employeeTypeComboBox.SelectedItem.ToString();
-            
-
             int.TryParse(searchByEmployeeIdTextBox.Text, out employeeId);
                 DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
                 viewEmployeeDataGridView.DataSource = intermediaryClass.SearchEmployee(employeeId, employeeName, employeeType);
@@ -58,11 +75,7 @@ namespace Group3HRManagementSystem
             if (intermediaryClass.DBError != null)
             {
                 errorLabel.Text = intermediaryClass.DBError.ToString();
-            }
-            
-
-            
-            
+            }    
         }
         //Written by Anubha Vishwakarma
         private void ViewEmployees_Load(object sender, EventArgs e)
@@ -74,7 +87,17 @@ namespace Group3HRManagementSystem
             viewEmployeeDataGridView.ScrollBars= ScrollBars.Both;
             viewEmployeeDataGridView.AllowUserToDeleteRows= false;
             viewEmployeeDataGridView.AllowUserToAddRows= false;
-            if(dataIntermediaryClass.DBError != null)
+            viewEmployeeDataGridView.Columns["EmployeeFirstName"].ReadOnly = true;
+            // Adding another column 
+            DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+            editButtonColumn.HeaderText = "Update";
+            editButtonColumn.Text = "Update";
+            editButtonColumn.Name = "Update";
+            editButtonColumn.UseColumnTextForButtonValue = true;
+            viewEmployeeDataGridView.Columns.Add(editButtonColumn);
+
+            this.SetButtonColumnText();
+            if (dataIntermediaryClass.DBError != null)
             {
                 errorLabel.Text = dataIntermediaryClass.DBError.ToString();
             }
@@ -102,8 +125,21 @@ namespace Group3HRManagementSystem
             //assigning value of list to the combobox
             employeeTypeComboBox.DataSource = employeeTypeNames;
 
+            //get all employee details
+            
+
 
         }//end view employee
+        private void SetButtonColumnText()
+        {
+            foreach (DataGridViewRow row in viewEmployeeDataGridView.Rows)
+            {
+                // Set the text of the Edit button column
+                DataGridViewButtonCell editButtonCell = (DataGridViewButtonCell)row.Cells["Update"];
+                editButtonCell.Value = "Update";
+            }
+        }
+
         //handeling selection change
         private void TextBoxSelectionCheck()
         {
@@ -126,28 +162,195 @@ namespace Group3HRManagementSystem
         }//custom event 
 
         //to display data whenever a cell is selected
-        private void viewEmployeeDataGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        
+        private DataTable getAllProjects()
         {
-            string employeeId="0"; object value = null; object firstName = null; object lastName = null; object projectName = null;
-            // Check if a valid row is selected
-            if (e.RowIndex >= 0 && e.RowIndex < viewEmployeeDataGridView.Rows.Count)
+            try
             {
-                 value = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeId"].Value;
-                firstName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeFirstName"].Value;
-                lastName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeLastName"].Value;
-                projectName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["ProjectName"].Value;
-                // Check if the value is not null
-                if (value != null)
+                DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
+                DataTable allProjects = dataIntermediaryClass.GetAllProjects();
+                return allProjects;
+            }catch (Exception e)
+            {
+                errorLabel.Text = e.Message;
+                return null;
+            }
+        }//end get all projects
+        private void PopulateUpdateGroupBox(string firstName , string lastName , string employeeType ,string projectAllocated, string employeeSalary, string employeePerformance)
+        {
+            int projectId = 0; ;
+            employeeFirstNameTextBox.Text = firstName;
+            employeeLastNameTextBox.Text = lastName;
+            employeeTypeTextBox.Text = employeeType;
+            projectAssignedComboBox.DataSource = allProjects;
+            projectAssignedComboBox.DisplayMember = "Name";
+            projectAssignedComboBox.ValueMember = "ProjectId";
+            employeeSalaryTextBox.Text = employeeSalary;
+            switch (employeePerformance)
+            {
+                case "A":
+                    ARadioButton.Checked = true;
+                    BRadioButton.Checked = false;
+                    CRadioButton.Checked = false;
+                    DRadioButton.Checked = false;
+                    break;
+
+                case "B":
+                    ARadioButton.Checked= false;
+                    BRadioButton.Checked = true;
+                    CRadioButton.Checked = false;
+                    DRadioButton.Checked = false;
+                    break;
+
+                case "C":
+                    ARadioButton.Checked= false;
+                    BRadioButton.Checked= false;
+                    CRadioButton.Checked = true;
+                    DRadioButton.Checked = false;
+                    break;
+                case "NULL":
+                    ARadioButton.Checked= false;
+                    BRadioButton.Checked= false;
+                    CRadioButton.Checked = false;
+                    DRadioButton.Checked = true;
+                    break;
+
+                default:
+                    break;
+            }
+
+            //to find the allocated project and select it 
+            foreach (Project project in  allProjects )
+            {
+                if (projectAllocated.Equals(project.Name))
                 {
-                    // Convert the value to a string
-                     employeeId = value.ToString();
+                    projectId = project.ProjectId; break;
                 }
             }
-            DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
-            employeeDescriptionLabel.Text = $"Employee Id:{value.ToString()} and {Environment.NewLine}Name:{firstName} {lastName} {Environment.NewLine}" +
-                $"is assigned to the project {projectName}{Environment.NewLine}" +
-                $"where the description is:{Environment.NewLine}";
-            employeeDescriptionLabel.Text += intermediaryClass.GetProjectDescriptionFromEmployeeId(employeeId);
+            projectAssignedComboBox.SelectedValue = projectId;
+        }//end populate method
+        private void disableReadOnlyFieldsInUpdate()
+        {
+            employeeFirstNameTextBox.Enabled = false;
+            employeeTypeTextBox.Enabled = false;
+        }
+
+        private void viewEmployeeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = viewEmployeeDataGridView.Rows[e.RowIndex];
+                if (e.ColumnIndex == viewEmployeeDataGridView.Columns["Update"].Index)
+                {
+                    updateEmployeeDetailsGroupBox.Enabled = true;
+                    employeeFirstNameTextBox.Enabled = false;
+                    employeeTypeTextBox.Enabled = false;
+                }
+                else
+                {
+                    updateEmployeeDetailsGroupBox.Enabled = false;
+                }
+                string employeeId = "0"; object value = null; object firstName = null; object lastName = null; object projectName = null; object employeeType = null;
+                object employeeSalary = null; object employeePerformance = null;
+                // Check if a valid row is selected
+                if (e.RowIndex >= 0 && e.RowIndex < viewEmployeeDataGridView.Rows.Count)
+                {
+                    value = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeId"].Value;
+                    firstName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeFirstName"].Value;
+                    lastName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeLastName"].Value;
+                    projectName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["ProjectName"].Value;
+                    employeeType = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeType"].Value;
+                    employeeSalary = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeePayRate"].Value;
+                    employeePerformance = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeePerformance"].Value;
+                    // Check if the value is not null
+                    if (value != null)
+                    {
+                        // Convert the value to a string
+                        employeeId = value.ToString();
+                        this.employeeId = employeeId;
+                    }
+                }
+                //populating text box
+                DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
+                employeeDescriptionLabel.Text = $"Employee Id:{value.ToString()} and {Environment.NewLine}Name:{firstName} {lastName} {Environment.NewLine}" +
+                    $"is assigned to the project {projectName}" +
+                    $"where the description is:";
+                employeeDescriptionLabel.Text += intermediaryClass.GetProjectDescriptionFromEmployeeId(employeeId);
+                this.PopulateUpdateGroupBox(firstName.ToString(), lastName.ToString(), employeeType.ToString(), projectName.ToString(), employeeSalary.ToString(), employeePerformance.ToString());
+            }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            //validations for update group box
+            string lastName =  employeeLastNameTextBox.Text;
+            double salary;
+            string performance = GetSelectedPerformance();
+            object projectId = projectAssignedComboBox.SelectedValue;
+           
+            if (string.IsNullOrEmpty(lastName))
+            {
+                MessageBox.Show("Please enter a valid last name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!double.TryParse(employeeSalaryTextBox.Text, out salary) || salary <= 0)
+            {
+                MessageBox.Show("Please enter a valid positive salary.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (string.IsNullOrEmpty(performance))
+            {
+                MessageBox.Show("Please select a performance level.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
+            try
+            {
+                if((dataIntermediaryClass.UpdateEmployeeDetailsInEmployee(lastName,projectId.ToString(),this.employeeId) != -1)&&
+                    dataIntermediaryClass.UpdateEmployeeDetails(salary, performance,this.employeeId) !=-1)
+                {
+                    employeeSalaryTextBox.Text = string.Empty;
+                    ARadioButton.Checked = false;
+                    BRadioButton.Checked = false;
+                    CRadioButton.Checked = false;
+                   
+                    MessageBox.Show("Employee details updated", "Successful", MessageBoxButtons.OK);
+                    viewEmployeeDataGridView.DataSource = dataIntermediaryClass.GetJoinTable();
+
+                    updateEmployeeDetailsGroupBox.Enabled = false;
+
+                }
+                else
+                {
+                    MessageBox.Show(dataIntermediaryClass.DBError);
+                }
+            }catch(Exception ex)
+            {
+                errorLabel.Text = ex.Message;   
+            }
+        }//update button 
+        private string GetSelectedPerformance()
+        {
+            if (ARadioButton.Checked)
+            {
+                return "A";
+            }
+            else if (BRadioButton.Checked)
+            {
+                return "B";
+            }
+            else if (CRadioButton.Checked)
+            {
+                return "C";
+            }
+            else if (DRadioButton.Checked)
+            {
+                return "NULL";
+            }
+
+            // Return an empty string if no performance level is selected.
+            return string.Empty;
         }
     }//end class
 }//end namespace

@@ -43,7 +43,25 @@
             this.employeeTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.OR = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ARadioButton = new System.Windows.Forms.RadioButton();
+            this.BRadioButton = new System.Windows.Forms.RadioButton();
+            this.CRadioButton = new System.Windows.Forms.RadioButton();
+            this.employeeFirstNameTextBox = new System.Windows.Forms.TextBox();
+            this.employeeLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.employeeTypeTextBox = new System.Windows.Forms.TextBox();
+            this.projectAssignedComboBox = new System.Windows.Forms.ComboBox();
+            this.employeeSalaryTextBox = new System.Windows.Forms.TextBox();
+            this.updateButton = new System.Windows.Forms.Button();
+            this.updateEmployeeDetailsGroupBox = new System.Windows.Forms.GroupBox();
+            this.DRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.viewEmployeeDataGridView)).BeginInit();
+            this.updateEmployeeDetailsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -91,7 +109,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(106, 139);
+            this.searchButton.Location = new System.Drawing.Point(106, 150);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 5;
@@ -101,7 +119,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(447, 139);
+            this.clearButton.Location = new System.Drawing.Point(375, 150);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 6;
@@ -111,7 +129,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(751, 139);
+            this.exitButton.Location = new System.Drawing.Point(1209, 580);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 7;
@@ -126,22 +144,22 @@
             this.viewEmployeeDataGridView.Name = "viewEmployeeDataGridView";
             this.viewEmployeeDataGridView.RowHeadersWidth = 51;
             this.viewEmployeeDataGridView.RowTemplate.Height = 24;
-            this.viewEmployeeDataGridView.Size = new System.Drawing.Size(550, 285);
+            this.viewEmployeeDataGridView.Size = new System.Drawing.Size(1178, 317);
             this.viewEmployeeDataGridView.TabIndex = 8;
-            this.viewEmployeeDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.viewEmployeeDataGridView_RowHeaderMouseClick);
+            this.viewEmployeeDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.viewEmployeeDataGridView_CellContentClick);
             // 
             // employeeDescriptionLabel
             // 
             this.employeeDescriptionLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.employeeDescriptionLabel.Location = new System.Drawing.Point(679, 236);
+            this.employeeDescriptionLabel.Location = new System.Drawing.Point(882, 63);
             this.employeeDescriptionLabel.Name = "employeeDescriptionLabel";
-            this.employeeDescriptionLabel.Size = new System.Drawing.Size(177, 285);
+            this.employeeDescriptionLabel.Size = new System.Drawing.Size(402, 150);
             this.employeeDescriptionLabel.TabIndex = 9;
             // 
             // errorLabel
             // 
             this.errorLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.errorLabel.Location = new System.Drawing.Point(106, 180);
+            this.errorLabel.Location = new System.Drawing.Point(106, 582);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(732, 23);
             this.errorLabel.TabIndex = 10;
@@ -185,11 +203,181 @@
             this.OR.TabIndex = 14;
             this.OR.Text = "OR";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 16);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Employee FirstName";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(19, 88);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(134, 16);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Employee LastName";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 156);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 16);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Employee Type";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(21, 224);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(109, 16);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Project Assigned";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(21, 291);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(151, 16);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Employee Pay Rate(/hr)";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(23, 349);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(149, 16);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Employee Performance";
+            // 
+            // ARadioButton
+            // 
+            this.ARadioButton.AutoSize = true;
+            this.ARadioButton.Location = new System.Drawing.Point(37, 377);
+            this.ARadioButton.Name = "ARadioButton";
+            this.ARadioButton.Size = new System.Drawing.Size(100, 20);
+            this.ARadioButton.TabIndex = 21;
+            this.ARadioButton.TabStop = true;
+            this.ARadioButton.Text = "A : Excellent";
+            this.ARadioButton.UseVisualStyleBackColor = true;
+            // 
+            // BRadioButton
+            // 
+            this.BRadioButton.AutoSize = true;
+            this.BRadioButton.Location = new System.Drawing.Point(37, 403);
+            this.BRadioButton.Name = "BRadioButton";
+            this.BRadioButton.Size = new System.Drawing.Size(116, 20);
+            this.BRadioButton.TabIndex = 22;
+            this.BRadioButton.TabStop = true;
+            this.BRadioButton.Text = "B : Satisfactory";
+            this.BRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // CRadioButton
+            // 
+            this.CRadioButton.AutoSize = true;
+            this.CRadioButton.Location = new System.Drawing.Point(37, 429);
+            this.CRadioButton.Name = "CRadioButton";
+            this.CRadioButton.Size = new System.Drawing.Size(138, 20);
+            this.CRadioButton.TabIndex = 23;
+            this.CRadioButton.TabStop = true;
+            this.CRadioButton.Text = "C : Below Average";
+            this.CRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // employeeFirstNameTextBox
+            // 
+            this.employeeFirstNameTextBox.Location = new System.Drawing.Point(22, 43);
+            this.employeeFirstNameTextBox.Name = "employeeFirstNameTextBox";
+            this.employeeFirstNameTextBox.Size = new System.Drawing.Size(170, 22);
+            this.employeeFirstNameTextBox.TabIndex = 24;
+            // 
+            // employeeLastNameTextBox
+            // 
+            this.employeeLastNameTextBox.Location = new System.Drawing.Point(22, 107);
+            this.employeeLastNameTextBox.Name = "employeeLastNameTextBox";
+            this.employeeLastNameTextBox.Size = new System.Drawing.Size(170, 22);
+            this.employeeLastNameTextBox.TabIndex = 25;
+            // 
+            // employeeTypeTextBox
+            // 
+            this.employeeTypeTextBox.Location = new System.Drawing.Point(24, 175);
+            this.employeeTypeTextBox.Name = "employeeTypeTextBox";
+            this.employeeTypeTextBox.Size = new System.Drawing.Size(170, 22);
+            this.employeeTypeTextBox.TabIndex = 26;
+            // 
+            // projectAssignedComboBox
+            // 
+            this.projectAssignedComboBox.FormattingEnabled = true;
+            this.projectAssignedComboBox.Location = new System.Drawing.Point(22, 243);
+            this.projectAssignedComboBox.Name = "projectAssignedComboBox";
+            this.projectAssignedComboBox.Size = new System.Drawing.Size(170, 24);
+            this.projectAssignedComboBox.TabIndex = 27;
+            // 
+            // employeeSalaryTextBox
+            // 
+            this.employeeSalaryTextBox.Location = new System.Drawing.Point(22, 310);
+            this.employeeSalaryTextBox.Name = "employeeSalaryTextBox";
+            this.employeeSalaryTextBox.Size = new System.Drawing.Size(170, 22);
+            this.employeeSalaryTextBox.TabIndex = 28;
+            // 
+            // updateButton
+            // 
+            this.updateButton.Location = new System.Drawing.Point(22, 500);
+            this.updateButton.Name = "updateButton";
+            this.updateButton.Size = new System.Drawing.Size(170, 23);
+            this.updateButton.TabIndex = 29;
+            this.updateButton.Text = "U&pdate";
+            this.updateButton.UseVisualStyleBackColor = true;
+            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            // 
+            // updateEmployeeDetailsGroupBox
+            // 
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.DRadioButton);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.label6);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.updateButton);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.employeeFirstNameTextBox);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.CRadioButton);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.employeeSalaryTextBox);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.BRadioButton);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.label7);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.ARadioButton);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.projectAssignedComboBox);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.label11);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.employeeLastNameTextBox);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.employeeTypeTextBox);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.label8);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.label10);
+            this.updateEmployeeDetailsGroupBox.Controls.Add(this.label9);
+            this.updateEmployeeDetailsGroupBox.Location = new System.Drawing.Point(1326, 62);
+            this.updateEmployeeDetailsGroupBox.Name = "updateEmployeeDetailsGroupBox";
+            this.updateEmployeeDetailsGroupBox.Size = new System.Drawing.Size(221, 544);
+            this.updateEmployeeDetailsGroupBox.TabIndex = 31;
+            this.updateEmployeeDetailsGroupBox.TabStop = false;
+            this.updateEmployeeDetailsGroupBox.Text = "Update Employee Details";
+            // 
+            // DRadioButton
+            // 
+            this.DRadioButton.AutoSize = true;
+            this.DRadioButton.Location = new System.Drawing.Point(37, 455);
+            this.DRadioButton.Name = "DRadioButton";
+            this.DRadioButton.Size = new System.Drawing.Size(117, 20);
+            this.DRadioButton.TabIndex = 30;
+            this.DRadioButton.TabStop = true;
+            this.DRadioButton.Text = "Not Applicable";
+            this.DRadioButton.UseVisualStyleBackColor = true;
+            // 
             // ViewEmployees
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(924, 558);
+            this.ClientSize = new System.Drawing.Size(1608, 623);
+            this.Controls.Add(this.updateEmployeeDetailsGroupBox);
             this.Controls.Add(this.OR);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.employeeTypeComboBox);
@@ -209,6 +397,8 @@
             this.Text = "ViewEmployees";
             this.Load += new System.EventHandler(this.ViewEmployees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.viewEmployeeDataGridView)).EndInit();
+            this.updateEmployeeDetailsGroupBox.ResumeLayout(false);
+            this.updateEmployeeDetailsGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -231,5 +421,22 @@
         private System.Windows.Forms.ComboBox employeeTypeComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label OR;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton ARadioButton;
+        private System.Windows.Forms.RadioButton BRadioButton;
+        private System.Windows.Forms.RadioButton CRadioButton;
+        private System.Windows.Forms.TextBox employeeFirstNameTextBox;
+        private System.Windows.Forms.TextBox employeeLastNameTextBox;
+        private System.Windows.Forms.TextBox employeeTypeTextBox;
+        private System.Windows.Forms.ComboBox projectAssignedComboBox;
+        private System.Windows.Forms.TextBox employeeSalaryTextBox;
+        private System.Windows.Forms.Button updateButton;
+        private System.Windows.Forms.GroupBox updateEmployeeDetailsGroupBox;
+        private System.Windows.Forms.RadioButton DRadioButton;
     }
 }

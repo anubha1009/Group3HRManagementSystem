@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -128,7 +129,8 @@ namespace Group3HRManagementSystem
 
         }//end search query
         public int ExecuteNonQuery(string proc, CommandType cmdType, SqlParameter param1 = null,
-            SqlParameter param2 = null, SqlParameter param3 = null, SqlParameter param4 = null, SqlParameter param5 = null, SqlParameter param6=null , SqlParameter param7 =null)
+            SqlParameter param2 = null, SqlParameter param3 = null, SqlParameter param4 = null, SqlParameter param5 = null, SqlParameter param6=null , SqlParameter param7 =null,
+            SqlParameter param8 = null, SqlParameter param9 = null)
         {
             SqlCommand sqlCommand = new SqlCommand(proc, this.GetConnection());
             sqlCommand.CommandType = cmdType;
@@ -139,6 +141,8 @@ namespace Group3HRManagementSystem
             if (param5 != null) { sqlCommand.Parameters.Add(param5); }
             if (param6 != null) { sqlCommand.Parameters.Add(param6); }
             if (param7 != null) { sqlCommand.Parameters.Add(param7); }
+            sqlCommand.Parameters.Add(param8);
+            sqlCommand.Parameters.Add(param9);
             try
             {
                 this.OpenConnection();
@@ -147,6 +151,43 @@ namespace Group3HRManagementSystem
             catch (Exception ex) { throw ex; }
             finally { this.CloseConnection(); sqlCommand.Dispose(); }
         }//end method
+
+        public int UpdateEmployeeDetails(string sqlQuery , CommandType commandType , SqlParameter param1=null , SqlParameter param2=null, SqlParameter param3=null)
+        {
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, this.GetConnection());
+            sqlCommand.CommandType = commandType;
+            if (param1 != null) { sqlCommand.Parameters.Add(param1); }
+            if (param2 != null) { sqlCommand.Parameters.Add(param2); }
+            if (param3 != null) { sqlCommand.Parameters.Add(param3); }
+            try
+            {
+                this.OpenConnection();
+                return sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex) { throw ex; }
+            finally { this.CloseConnection(); sqlCommand.Dispose(); };
+        }//end up date emp details
+
+        public DataTable GetEmployeeDetails(string sqlQuery, SqlParameter param1 ,CommandType cmdType)
+        {
+          DataSet ds = new DataSet();
+            SqlCommand sqlCommand = new SqlCommand(sqlQuery, this.GetConnection());
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+
+            sqlCommand.CommandType = cmdType;
+            sqlCommand.Parameters.Add(param1);
+            dataAdapter.SelectCommand = sqlCommand;
+
+            try
+            {
+                
+
+                this.OpenConnection();
+                dataAdapter.Fill(ds);
+                return ds.Tables[0];
+            }catch(Exception ex) { throw ex; }
+            finally { this.CloseConnection(); }
+        }
 
     }//end Data Access Class
 }//end namespace

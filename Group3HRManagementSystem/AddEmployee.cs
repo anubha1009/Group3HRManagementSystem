@@ -12,7 +12,7 @@ using System.Windows.Forms.VisualStyles;
 
 namespace Group3HRManagementSystem
 {
-    /*created by vineela pendam*/
+    /*Validated by vineela pendam Implemented by Anubha Vishwakarma*/
     public partial class AddEmployeeDetails : Form
     {
         //step2 private static variable
@@ -38,6 +38,7 @@ namespace Group3HRManagementSystem
             addEmployeeInstance = null;
         }//forming closing
 
+        //Implemented by Anubha Vishwakarma
         private void addEmployeeButton_Click(object sender, EventArgs e)
         {
             DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
@@ -48,22 +49,26 @@ namespace Group3HRManagementSystem
             string contactNumber = contactNumberTextBox.Text;
             string employeeType = employeeTypeComboBox.SelectedItem.ToString();
             int projectId = int.Parse(projectComboBox.SelectedValue.ToString());
+            string payRate = payRateTextBox.Text;
+            string grade = gradeComboBox.SelectedItem.ToString();
          
             DateTime employeeHireDate = employeeHireDateTimePicket.Value.Date;
 
-            if (ValidateAddEmployeeForm(firstName,lastName,emailId,contactNumber))
+            if (ValidateAddEmployeeForm(firstName,lastName,emailId,contactNumber,payRate))
             {
                 //Query for insert 
                 try
                 {
-                    if ((dataIntermediaryClass.AddEmployee(firstName, lastName, emailId, contactNumber, employeeHireDate, projectId, employeeType)) != -1)
+                    Console.WriteLine(payRate, grade);
+                    if ((dataIntermediaryClass.AddEmployee(firstName, lastName, emailId, contactNumber, employeeHireDate, projectId, employeeType, payRate, grade)) != -1)
                     {
-                        resultLabel.Text = "1 Record Inserted";
+                        resultLabel.Text = $"1 Employee Inserted with name {firstName} {lastName}";
                         //clear controls
                         firstNameTextBox.Clear();
                         lastNameTextBox.Clear();
                         emailTextBox.Clear();
                         contactNumberTextBox.Clear();
+                        payRateTextBox.Clear();
 
                         // update the datagrid
 
@@ -74,6 +79,7 @@ namespace Group3HRManagementSystem
                     }
                     else
                     {
+
                         MessageBox.Show("Insert Failed", "Cannot Complete Operation", MessageBoxButtons.OK);
                        
                     }
@@ -87,7 +93,7 @@ namespace Group3HRManagementSystem
            
             
         }
-        private bool ValidateAddEmployeeForm(string firstName, string lastName, string emailId,  string contactNumber)
+        private bool ValidateAddEmployeeForm(string firstName, string lastName, string emailId,  string contactNumber, string payRate)
         {
 
             addEmployeeValidationErrorProvider.Clear();
@@ -101,7 +107,18 @@ namespace Group3HRManagementSystem
                         //validate emailID
                         if (!string.IsNullOrEmpty(contactNumber) && IsPhoneValid(ref contactNumber))
                         {
-                            isFormValid = true;
+                            //isFormValid = true;
+
+                            // validate if pay rate is double
+                            if (double.TryParse(payRate, out _)){
+                                isFormValid = true;
+                            }
+
+                            else
+                            {
+                                isFormValid= false;
+                                addEmployeeValidationErrorProvider.SetError(payRateTextBox, "Enter a valid number in Pay Rate");
+                            }
                         }
                         else
                         {
@@ -176,6 +193,7 @@ namespace Group3HRManagementSystem
             }
             //assigning value of list to the combobox
             employeeTypeComboBox.DataSource = employeeTypeNames;
+            gradeComboBox.SelectedIndex = 0;
 
             //FOR PROJECT COMBOBOX
             DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
@@ -196,10 +214,5 @@ namespace Group3HRManagementSystem
             allEmployeeDataGridView.AllowUserToDeleteRows = false;
             allEmployeeDataGridView.ScrollBars = ScrollBars.Both;
         }//end form load
-
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
     }//end class
 }//end namespoace

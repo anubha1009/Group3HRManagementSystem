@@ -58,7 +58,7 @@ namespace Group3HRManagementSystem
         public DataTable GetJoinTable()
         {
             DataAccess dataAccess=new DataAccess();
-            string sqlQuery = "SELECT e.EmployeeId, e.EmployeeFirstName, e.EmployeeLastName, e.EmployeeType ,p.ProjectName \r\nFROM EMPLOYEE as e \r\nJOIN PROJECT as p ON e.ProjectAllocatedId = p.ProjectId;\r\n";
+            string sqlQuery = "SELECT e.EmployeeId, e.EmployeeFirstName, e.EmployeeLastName, e.EmployeeType, p.ProjectName, ed.EmployeePayRate, ed.EmployeePerformance \r\nFROM EMPLOYEE as e \r\nJOIN PROJECT as p ON e.ProjectAllocatedId = p.ProjectId JOIN EMPLOYEEDETAILS as ed ON ed.EmployeeId = e.EmployeeId;";
             try
             {
                 return dataAccess.JoinQuery(sqlQuery, CommandType.Text);
@@ -136,7 +136,7 @@ namespace Group3HRManagementSystem
                 return -1;
             }
         }//end Add project
-        public int AddEmployee(string employeeFirstName,string employeeLastName , string employeeEmail , string employeeContact , DateTime employeeHireDate , int projectAllocated, string employeeType)
+        public int AddEmployee(string employeeFirstName,string employeeLastName , string employeeEmail , string employeeContact , DateTime employeeHireDate , int projectAllocated, string employeeType, string payRate, string grade)
         {
             DataAccess dataAccess = new DataAccess();
             // string sqlQuery = "INSERT INTO EMPLOYEE VALUES (@EmployeeFirstName , @EmployeeLastName , @EmployeeEmail,@EmployeeContactNumber,@EmployeeHireDate,@ProjectAllocatedId,@EmployeeType)";
@@ -149,6 +149,8 @@ namespace Group3HRManagementSystem
             SqlParameter param5 = new SqlParameter("@EmployeeHireDate", SqlDbType.Date);
             SqlParameter param6 = new SqlParameter("@ProjectAllocatedId", SqlDbType.Int);
             SqlParameter param7 = new SqlParameter("@EmployeeType", SqlDbType.VarChar);
+            SqlParameter param8 = new SqlParameter("@EmployeePayRate", SqlDbType.Money);
+            SqlParameter param9 = new SqlParameter("@EmployeePerformance", SqlDbType.NVarChar);
 
             param1.Value = employeeFirstName;
             param2.Value = employeeLastName;
@@ -157,9 +159,20 @@ namespace Group3HRManagementSystem
             param5.Value = employeeHireDate;
             param6.Value = projectAllocated;
             param7.Value = employeeType;
+            param8.Value = payRate;
+
+            if(grade.Equals("Not Applicable"))
+            {
+                param9.Value = "NULL";
+            }
+            else
+            {
+                param9.Value = grade;
+            }
+
             try
             {
-                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.StoredProcedure, param1, param2, param3, param4,param5,param6,param7);
+                return dataAccess.ExecuteNonQuery(sqlQuery, CommandType.StoredProcedure, param1, param2, param3, param4,param5,param6,param7,param8,param9);
             }
             catch(Exception ex)
             {
@@ -167,6 +180,67 @@ namespace Group3HRManagementSystem
                 return -1;
             }
 
+        }//end add employee
+
+        public int UpdateEmployeeDetails(double employeeSalary ,  string employeePerformance ,  string employeeId)
+        {
+            //For Employee Details Table
+            DataAccess dataAccess = new DataAccess();
+            string sqlQuery = "UPDATE EmployeeDetails\r\nSET EmployeePayRate = @EmployeePayRate,\r\n    EmployeePerformance = @EmployeePerformance\r\nWHERE EmployeeId = @EmployeeId;";
+            SqlParameter param1 = new SqlParameter("@EmployeePayRate", SqlDbType.Money);
+            SqlParameter param2 = new SqlParameter("@EmployeePerformance", SqlDbType.NVarChar);
+            SqlParameter param3 = new SqlParameter("@EmployeeId", SqlDbType.Int);
+            param1.Value= employeeSalary;
+            param2.Value= employeePerformance;
+            param3.Value= employeeId;
+            try
+            {
+                return dataAccess.UpdateEmployeeDetails(sqlQuery, CommandType.Text, param1, param2, param3);
+            }catch(Exception ex)
+            {
+                DBError = ex.Message;
+                return -1;
+            }
+        }//end update details 
+        public int UpdateEmployeeDetailsInEmployee(string lastName , string projectId , string employeeId)
+        {
+            DataAccess dataAccess = new DataAccess();
+            string sqlQuery = "UPDATE Employee SET EmployeeLastName = @EmployeeLastName, ProjectAllocatedId = @ProjectAllocatedId WHERE EmployeeId = @EmployeeId";
+            SqlParameter param1 = new SqlParameter("@EmployeeLastName",SqlDbType.NVarChar);
+            SqlParameter param2 = new SqlParameter("@ProjectAllocatedId", SqlDbType.Int);
+            SqlParameter param3 = new SqlParameter("@EmployeeId", SqlDbType.Int);
+            param1.Value = lastName;
+            param2.Value= projectId;
+            param3.Value= employeeId;
+            try
+            {
+                return dataAccess.UpdateEmployeeDetails(sqlQuery, CommandType.Text, param1, param2,param3);
+            }
+            catch (Exception ex)
+            {
+                DBError = ex.Message;
+                return -1;
+            }
+        }//end update employee details
+
+        public DataTable GetEmployeeDetails(string employeeId)
+        {
+            
+            DataAccess dataAccess = new DataAccess();
+            string sqlQuery = "SELECT * FROM EMPLOYEEDETAILS WHERE EmployeeId = @EmployeeId;";
+            SqlParameter param1 = new SqlParameter("@EmployeeId", SqlDbType.Int);
+            param1.Value = employeeId;
+            try
+            {
+                return dataAccess.GetEmployeeDetails(sqlQuery, param1, CommandType.Text) ;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                DBError = e.Message;
+                return null;
+
+            }
         }
 
     }//end class
