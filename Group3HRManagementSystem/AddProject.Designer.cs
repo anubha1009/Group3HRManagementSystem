@@ -176,14 +176,14 @@
             this.allProjectDataGridView.Name = "allProjectDataGridView";
             this.allProjectDataGridView.RowHeadersWidth = 51;
             this.allProjectDataGridView.RowTemplate.Height = 24;
-            this.allProjectDataGridView.Size = new System.Drawing.Size(352, 333);
+            this.allProjectDataGridView.Size = new System.Drawing.Size(623, 333);
             this.allProjectDataGridView.TabIndex = 14;
             // 
             // AddProjectDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 426);
+            this.ClientSize = new System.Drawing.Size(1132, 426);
             this.Controls.Add(this.allProjectDataGridView);
             this.Controls.Add(this.resultLabel);
             this.Controls.Add(this.exitButton);

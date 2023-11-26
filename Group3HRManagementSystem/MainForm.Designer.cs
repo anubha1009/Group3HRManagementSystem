@@ -53,7 +53,6 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -69,7 +68,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -95,15 +94,15 @@
             // addEmployeeToolStripMenuItem
             // 
             this.addEmployeeToolStripMenuItem.Name = "addEmployeeToolStripMenuItem";
-            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addEmployeeToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
             this.addEmployeeToolStripMenuItem.Text = "Add Employee";
             this.addEmployeeToolStripMenuItem.Click += new System.EventHandler(this.addEmployeeToolStripMenuItem_Click);
             // 
             // viewEmployeesToolStripMenuItem
             // 
             this.viewEmployeesToolStripMenuItem.Name = "viewEmployeesToolStripMenuItem";
-            this.viewEmployeesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.viewEmployeesToolStripMenuItem.Text = "View Employees";
+            this.viewEmployeesToolStripMenuItem.Size = new System.Drawing.Size(232, 26);
+            this.viewEmployeesToolStripMenuItem.Text = "View/Edit Employees";
             this.viewEmployeesToolStripMenuItem.Click += new System.EventHandler(this.viewEmployeesToolStripMenuItem_Click);
             // 
             // projectToolStripMenuItem
@@ -118,14 +117,14 @@
             // addProjectToolStripMenuItem
             // 
             this.addProjectToolStripMenuItem.Name = "addProjectToolStripMenuItem";
-            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.addProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.addProjectToolStripMenuItem.Text = "Add Project";
             this.addProjectToolStripMenuItem.Click += new System.EventHandler(this.addProjectToolStripMenuItem_Click);
             // 
             // viewProjectToolStripMenuItem
             // 
             this.viewProjectToolStripMenuItem.Name = "viewProjectToolStripMenuItem";
-            this.viewProjectToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.viewProjectToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.viewProjectToolStripMenuItem.Text = "View Projects";
             this.viewProjectToolStripMenuItem.Click += new System.EventHandler(this.viewProjectToolStripMenuItem_Click);
             // 

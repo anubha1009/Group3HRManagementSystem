@@ -11,7 +11,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Group3HRManagementSystem
 {
-    /*created  by vineela pendam*/
+    /*created  by vineela pendam Implemented by Anubha Vishwakarma */ 
     public partial class AddProjectDetails : Form
     {
         //step2 private static variable
@@ -40,7 +40,7 @@ namespace Group3HRManagementSystem
         {
             this.Close();
             addProjectInstance = null;
-        }
+        }//end closes the application
 
         private void addProjectButton_Click(object sender, EventArgs e)
         {
@@ -57,7 +57,7 @@ namespace Group3HRManagementSystem
                 {
                     if ((dataIntermediaryClass.AddProject(projectName, (int)projectHourAllocated, estimatedBudget, projectDescription)) != -1)
                     {
-                        resultLabel.Text = "1 Record Inserted";
+                        resultLabel.Text = $"New Project with {projectName} added";
                         //clear controls
                         projectNameTextBox.Clear();
                         estimatedBudgetTextBox.Clear();
@@ -69,22 +69,22 @@ namespace Group3HRManagementSystem
                         allProjectDataGridView.AllowUserToAddRows = false;
                         allProjectDataGridView.AllowUserToDeleteRows = false;
                         allProjectDataGridView.ScrollBars = ScrollBars.Both;
-                    }
+                    }//if successful
                     else
                     {
-                        Console.WriteLine(dataIntermediaryClass.DBError);
-                        MessageBox.Show("Insert Failed");
-                    }
+                       
+                        MessageBox.Show("Insert Failed","Cannot Complete Operation",MessageBoxButtons.OK);
+                    }//end else
 
                 }catch(Exception)
                 {
                     resultLabel.Text = dataIntermediaryClass.DBError;
-                }
+                }//catch exception
             }
             else
             {
                 MessageBox.Show("The Fields Cannot be Validated", "Field Error", MessageBoxButtons.OK);
-            }
+            }//end field validation
 
         }//end add project
 
@@ -135,6 +135,6 @@ namespace Group3HRManagementSystem
             allProjectDataGridView.AllowUserToAddRows = false;
             allProjectDataGridView.AllowUserToDeleteRows = false;
             allProjectDataGridView.ScrollBars = ScrollBars.Both;
-        }
+        }//populate all projects at load
     }//end class
 }//end namespace

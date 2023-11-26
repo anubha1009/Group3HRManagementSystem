@@ -59,7 +59,6 @@ namespace Group3HRManagementSystem
                 //Query for insert 
                 try
                 {
-                    Console.WriteLine(payRate, grade);
                     if ((dataIntermediaryClass.AddEmployee(firstName, lastName, emailId, contactNumber, employeeHireDate, projectId, employeeType, payRate, grade)) != -1)
                     {
                         resultLabel.Text = $"1 Employee Inserted with name {firstName} {lastName}";
@@ -79,20 +78,19 @@ namespace Group3HRManagementSystem
                     }
                     else
                     {
-
                         MessageBox.Show("Insert Failed", "Cannot Complete Operation", MessageBoxButtons.OK);
                        
-                    }
+                    }//if add unsuccessful
 
-                }
+                }//end try
                 catch (Exception)
                 {
                     resultLabel.Text = dataIntermediaryClass.DBError;
-                }
-            }
+                }//if add unsuccessfull
+            }//end validate
            
             
-        }
+        }//end add employee
         private bool ValidateAddEmployeeForm(string firstName, string lastName, string emailId,  string contactNumber, string payRate)
         {
 
@@ -172,7 +170,7 @@ namespace Group3HRManagementSystem
         {
             this.Close();
             addEmployeeInstance = null;
-        }
+        }//close form
         //Added by Anubha Vishwakarma
         private void AddEmployeeDetails_Load(object sender, EventArgs e)
         {
@@ -189,8 +187,8 @@ namespace Group3HRManagementSystem
                 if (employeeTypeNames[i].Equals("EmployeeClass"))
                 {
                     employeeTypeNames[i] = "SalariedEmployee";
-                }
-            }
+                }//end if
+            }//end for
             //assigning value of list to the combobox
             employeeTypeComboBox.DataSource = employeeTypeNames;
             gradeComboBox.SelectedIndex = 0;
@@ -208,7 +206,6 @@ namespace Group3HRManagementSystem
             projectComboBox.DataBindings.Add("Text", projectbindingSource, "ProjectName", false, DataSourceUpdateMode.Never);
 
             //display all employee details
-
             allEmployeeDataGridView.DataSource = dataIntermediaryClass.GetAllEmployees();
             allEmployeeDataGridView.AllowUserToAddRows = false;
             allEmployeeDataGridView.AllowUserToDeleteRows = false;

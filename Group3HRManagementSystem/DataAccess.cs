@@ -141,8 +141,8 @@ namespace Group3HRManagementSystem
             if (param5 != null) { sqlCommand.Parameters.Add(param5); }
             if (param6 != null) { sqlCommand.Parameters.Add(param6); }
             if (param7 != null) { sqlCommand.Parameters.Add(param7); }
-            sqlCommand.Parameters.Add(param8);
-            sqlCommand.Parameters.Add(param9);
+            if (param7 != null) sqlCommand.Parameters.Add(param8);
+            if (param7 != null) sqlCommand.Parameters.Add(param9);
             try
             {
                 this.OpenConnection();
