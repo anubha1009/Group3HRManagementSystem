@@ -194,7 +194,7 @@ namespace Group3HRManagementSystem
                                     TempContractEmployee tempContractEmployee = new TempContractEmployee(duration, payRate);
                                     SalaryCalculationClass calculator = new SalaryCalculationClass();
                                     double salary = calculator.CalculateEmployeeSalary(tempContractEmployee);
-                                    resultLabel.Text = $"The Calculated Salary for the {tempContractEmployee.GetType().Name} who has worked for {duration} duration at a payrate of ${payRate} is ${salary.ToString()}";
+                                    resultLabel.Text = $"The Calculated Salary for the {tempContractEmployee.GetType().Name} who has worked for {duration}hrs duration at a payrate of ${payRate} is ${salary.ToString()}";
                                 }
                                
                                 else

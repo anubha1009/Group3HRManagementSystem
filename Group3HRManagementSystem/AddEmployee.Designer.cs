@@ -170,10 +170,10 @@
             // 
             // addEmployeeButton
             // 
-            this.addEmployeeButton.Location = new System.Drawing.Point(47, 485);
+            this.addEmployeeButton.Location = new System.Drawing.Point(46, 485);
             this.addEmployeeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addEmployeeButton.Name = "addEmployeeButton";
-            this.addEmployeeButton.Size = new System.Drawing.Size(111, 29);
+            this.addEmployeeButton.Size = new System.Drawing.Size(111, 35);
             this.addEmployeeButton.TabIndex = 13;
             this.addEmployeeButton.Text = "&Submit";
             this.addEmployeeButton.UseVisualStyleBackColor = true;
@@ -197,7 +197,7 @@
             this.exitButton.Location = new System.Drawing.Point(189, 485);
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(124, 29);
+            this.exitButton.Size = new System.Drawing.Size(124, 35);
             this.exitButton.TabIndex = 15;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;

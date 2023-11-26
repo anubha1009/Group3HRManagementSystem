@@ -109,9 +109,9 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(106, 150);
+            this.searchButton.Location = new System.Drawing.Point(373, 138);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.Size = new System.Drawing.Size(116, 53);
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "&Search";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(375, 150);
+            this.clearButton.Location = new System.Drawing.Point(106, 138);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.Size = new System.Drawing.Size(110, 55);
             this.clearButton.TabIndex = 6;
             this.clearButton.Text = "&Clear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -129,9 +129,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(1209, 580);
+            this.exitButton.Location = new System.Drawing.Point(1193, 562);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(75, 23);
+            this.exitButton.Size = new System.Drawing.Size(91, 38);
             this.exitButton.TabIndex = 7;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -159,9 +159,9 @@
             // errorLabel
             // 
             this.errorLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.errorLabel.Location = new System.Drawing.Point(106, 582);
+            this.errorLabel.Location = new System.Drawing.Point(106, 572);
             this.errorLabel.Name = "errorLabel";
-            this.errorLabel.Size = new System.Drawing.Size(732, 23);
+            this.errorLabel.Size = new System.Drawing.Size(1061, 23);
             this.errorLabel.TabIndex = 10;
             this.errorLabel.Text = "No Errors";
             // 
@@ -330,7 +330,7 @@
             // 
             this.updateButton.Location = new System.Drawing.Point(22, 500);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(170, 23);
+            this.updateButton.Size = new System.Drawing.Size(170, 38);
             this.updateButton.TabIndex = 29;
             this.updateButton.Text = "U&pdate";
             this.updateButton.UseVisualStyleBackColor = true;

@@ -76,7 +76,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 80);
+            this.label2.Location = new System.Drawing.Point(26, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 16);
             this.label2.TabIndex = 1;
@@ -90,19 +90,19 @@
             "Temp Contract Employee",
             "Salaried Employee",
             "HourlyEmployee"});
-            this.typeOfEmployeeComboBox.Location = new System.Drawing.Point(244, 77);
+            this.typeOfEmployeeComboBox.Location = new System.Drawing.Point(213, 77);
             this.typeOfEmployeeComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.typeOfEmployeeComboBox.Name = "typeOfEmployeeComboBox";
-            this.typeOfEmployeeComboBox.Size = new System.Drawing.Size(556, 24);
+            this.typeOfEmployeeComboBox.Size = new System.Drawing.Size(587, 24);
             this.typeOfEmployeeComboBox.TabIndex = 2;
             this.typeOfEmployeeComboBox.SelectedIndexChanged += new System.EventHandler(this.typeOfEmployeeComboBox_SelectedIndexChanged);
             // 
             // CalculateSalaryButton
             // 
-            this.CalculateSalaryButton.Location = new System.Drawing.Point(67, 404);
+            this.CalculateSalaryButton.Location = new System.Drawing.Point(29, 394);
             this.CalculateSalaryButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CalculateSalaryButton.Name = "CalculateSalaryButton";
-            this.CalculateSalaryButton.Size = new System.Drawing.Size(163, 27);
+            this.CalculateSalaryButton.Size = new System.Drawing.Size(163, 46);
             this.CalculateSalaryButton.TabIndex = 4;
             this.CalculateSalaryButton.Text = "Calculate &Salary";
             this.CalculateSalaryButton.UseVisualStyleBackColor = true;
@@ -110,10 +110,10 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(349, 404);
+            this.clearButton.Location = new System.Drawing.Point(351, 394);
             this.clearButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(116, 27);
+            this.clearButton.Size = new System.Drawing.Size(116, 46);
             this.clearButton.TabIndex = 5;
             this.clearButton.Text = "C&lear";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -123,9 +123,9 @@
             // 
             this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultLabel.Location = new System.Drawing.Point(65, 448);
+            this.resultLabel.Location = new System.Drawing.Point(29, 459);
             this.resultLabel.Name = "resultLabel";
-            this.resultLabel.Size = new System.Drawing.Size(734, 48);
+            this.resultLabel.Size = new System.Drawing.Size(770, 48);
             this.resultLabel.TabIndex = 6;
             // 
             // contractEmployeeGroupBox
@@ -139,7 +139,7 @@
             this.contractEmployeeGroupBox.Controls.Add(this.contractStartDateTimePicker);
             this.contractEmployeeGroupBox.Controls.Add(this.contractSalaryTextBox);
             this.contractEmployeeGroupBox.Controls.Add(this.label8);
-            this.contractEmployeeGroupBox.Location = new System.Drawing.Point(11, 123);
+            this.contractEmployeeGroupBox.Location = new System.Drawing.Point(29, 123);
             this.contractEmployeeGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contractEmployeeGroupBox.Name = "contractEmployeeGroupBox";
             this.contractEmployeeGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -220,7 +220,7 @@
             // 
             // hourlyWagetextBox
             // 
-            this.hourlyWagetextBox.Location = new System.Drawing.Point(110, 38);
+            this.hourlyWagetextBox.Location = new System.Drawing.Point(119, 35);
             this.hourlyWagetextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hourlyWagetextBox.Name = "hourlyWagetextBox";
             this.hourlyWagetextBox.Size = new System.Drawing.Size(89, 22);
@@ -238,7 +238,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 35);
+            this.label6.Location = new System.Drawing.Point(11, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 16);
             this.label6.TabIndex = 4;
@@ -247,7 +247,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(11, 74);
+            this.label7.Location = new System.Drawing.Point(11, 85);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 16);
             this.label7.TabIndex = 5;
@@ -256,7 +256,7 @@
             // fixedSalaryLabel
             // 
             this.fixedSalaryLabel.AutoSize = true;
-            this.fixedSalaryLabel.Location = new System.Drawing.Point(63, 268);
+            this.fixedSalaryLabel.Location = new System.Drawing.Point(26, 269);
             this.fixedSalaryLabel.Name = "fixedSalaryLabel";
             this.fixedSalaryLabel.Size = new System.Drawing.Size(122, 16);
             this.fixedSalaryLabel.TabIndex = 6;
@@ -264,7 +264,7 @@
             // 
             // payRateTextBox
             // 
-            this.payRateTextBox.Location = new System.Drawing.Point(103, 68);
+            this.payRateTextBox.Location = new System.Drawing.Point(103, 79);
             this.payRateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.payRateTextBox.Name = "payRateTextBox";
             this.payRateTextBox.Size = new System.Drawing.Size(89, 22);
@@ -272,7 +272,7 @@
             // 
             // durationTextBox
             // 
-            this.durationTextBox.Location = new System.Drawing.Point(103, 29);
+            this.durationTextBox.Location = new System.Drawing.Point(103, 40);
             this.durationTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.durationTextBox.Name = "durationTextBox";
             this.durationTextBox.Size = new System.Drawing.Size(89, 22);
@@ -304,9 +304,9 @@
             // noteLabel
             // 
             this.noteLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.noteLabel.Location = new System.Drawing.Point(65, 309);
+            this.noteLabel.Location = new System.Drawing.Point(29, 309);
             this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(734, 68);
+            this.noteLabel.Size = new System.Drawing.Size(770, 68);
             this.noteLabel.TabIndex = 9;
             // 
             // salaryCalculatorErrorProvider
@@ -315,9 +315,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(647, 404);
+            this.exitButton.Location = new System.Drawing.Point(687, 394);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(112, 23);
+            this.exitButton.Size = new System.Drawing.Size(112, 46);
             this.exitButton.TabIndex = 11;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;
@@ -340,7 +340,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 503);
+            this.ClientSize = new System.Drawing.Size(881, 529);
             this.Controls.Add(this.hourlyEmployeeGroupBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.noteLabel);

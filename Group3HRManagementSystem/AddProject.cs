@@ -57,7 +57,7 @@ namespace Group3HRManagementSystem
                 {
                     if ((dataIntermediaryClass.AddProject(projectName, (int)projectHourAllocated, estimatedBudget, projectDescription)) != -1)
                     {
-                        resultLabel.Text = $"New Project with {projectName} added";
+                        resultLabel.Text = $"New Project with name {projectName} is added to the record";
                         //clear controls
                         projectNameTextBox.Clear();
                         estimatedBudgetTextBox.Clear();

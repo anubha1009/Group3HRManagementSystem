@@ -58,6 +58,7 @@ namespace Group3HRManagementSystem
             viewEmployeeDataGridView.DataSource = intermediaryClass.GetJoinTable();
 
             updateEmployeeDetailsGroupBox.Enabled = false;
+            employeeTypeComboBox.SelectedItem = "- No Selection -";
         }//end clear button 
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -80,6 +81,7 @@ namespace Group3HRManagementSystem
         //Written by Anubha Vishwakarma
         private void ViewEmployees_Load(object sender, EventArgs e)
         {
+            
             DataIntermediaryClass dataIntermediaryClass = new DataIntermediaryClass();
             DataTable dataTable = dataIntermediaryClass.GetJoinTable();
             viewEmployeeDataGridView.DataSource = dataTable;
@@ -281,6 +283,7 @@ namespace Group3HRManagementSystem
 
         private void updateButton_Click(object sender, EventArgs e)
         {
+            employeeDescriptionLabel.Text = string.Empty;
             //validations for update group box
             string lastName =  employeeLastNameTextBox.Text;
             double salary;

@@ -66,9 +66,9 @@
             // 
             // getEmployeesButton
             // 
-            this.getEmployeesButton.Location = new System.Drawing.Point(96, 160);
+            this.getEmployeesButton.Location = new System.Drawing.Point(96, 163);
             this.getEmployeesButton.Name = "getEmployeesButton";
-            this.getEmployeesButton.Size = new System.Drawing.Size(116, 23);
+            this.getEmployeesButton.Size = new System.Drawing.Size(116, 53);
             this.getEmployeesButton.TabIndex = 5;
             this.getEmployeesButton.Text = "&Get Employees";
             this.getEmployeesButton.UseVisualStyleBackColor = true;
@@ -76,9 +76,9 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(96, 316);
+            this.exitButton.Location = new System.Drawing.Point(96, 300);
             this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(116, 23);
+            this.exitButton.Size = new System.Drawing.Size(116, 39);
             this.exitButton.TabIndex = 7;
             this.exitButton.Text = "E&xit";
             this.exitButton.UseVisualStyleBackColor = true;
