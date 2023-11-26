@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 //Created by Vineela , modified by Anubha 
+//Delegates, Anonymous functions implemented by Anubha Vishwakarma
 namespace Group3HRManagementSystem
 {
     public partial class SalaryCalculatorForm : Form
@@ -39,7 +40,7 @@ namespace Group3HRManagementSystem
                 noteLabel.Text += $"{Environment.NewLine}The final pay is determined by subtracting 10% for income tax and adding 2% for contract incentives from the calculated pay";
 
 
-            }
+            }//for contract employee
             else if (typeOfEmployeeComboBox.SelectedIndex == 1)
             {
                 //disabling all other boxes    
@@ -58,7 +59,7 @@ namespace Group3HRManagementSystem
                 noteDelegate1(message);
 
 
-            }
+            }//for temp contact employee
             else if (typeOfEmployeeComboBox.SelectedIndex == 2)
             {
                 //disabling all other boxes 
@@ -76,7 +77,7 @@ namespace Group3HRManagementSystem
                 };
                 noteDelegate2(message);
 
-            }
+            }//for salaried employee
             else if (typeOfEmployeeComboBox.SelectedIndex == 3)
             {
                 hourlyEmployeeGroupBox.Enabled = true;
@@ -90,9 +91,9 @@ namespace Group3HRManagementSystem
                 NoteDelegate noteDelegate3 = new NoteDelegate(NoteForHourlyPay);
                 noteDelegate3($"{Environment.NewLine}The final pay is determined by multiplying the hours worked by the pay rate.");
 
-            }
+            }//for hourly employee
 
-        }
+        }//end type combo boc
         private void NoteForHourlyPay(string s)
         {
             noteLabel.Text += s;
@@ -105,7 +106,7 @@ namespace Group3HRManagementSystem
              fixedSalaryTextBox.Visible=false;
              label8.Visible=false;*/
             noteLabel.Text = "Taxes are Calculated based on the Type of Employee.";
-        }
+        }//end salary form load
 
         private void clearButton_Click(object sender, EventArgs e)
         {
@@ -301,6 +302,6 @@ namespace Group3HRManagementSystem
             salaryCalculatorErrorProvider.SetError(contractEndDateTimePicker, "");
 
             return isValidateDate;
-        }
+        }//end validation
     }//end class
 }//end namespace
