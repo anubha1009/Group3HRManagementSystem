@@ -15,6 +15,9 @@ namespace Group3HRManagementSystem
         public string EmployeePhone { get; set; }
         public DateTime EmployeeHireDate { get; set; }
         public double EmployeeSalary { get; set; }
+
+        const double FIXED_HOURS = 160;
+        const double FIXED_MONTHS = 12;
         public EmployeeClass()
         {
 
@@ -32,7 +35,7 @@ namespace Group3HRManagementSystem
         }
         public virtual double  CalculatePay()
         {
-            return EmployeeSalary;
+            return EmployeeSalary * FIXED_HOURS * FIXED_MONTHS;
         }
         
 
