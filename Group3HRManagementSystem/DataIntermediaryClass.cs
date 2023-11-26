@@ -39,12 +39,13 @@ namespace Group3HRManagementSystem
             }
         }//end get all projects method
 
+        //EXAMPLE OF NORMAL QUERY WITH INTERPOLATION
         public DataTable GetEmployeesForProject(string projectId)
         {
             DataAccess dataAccess = new DataAccess();
             
             string sqlQuery = $"SELECT * FROM EMPLOYEE WHERE ProjectAllocatedId = {projectId};";
-            Console.WriteLine(sqlQuery);
+           
             try
             {
                 return dataAccess.GetAllEmployeesOrProject(sqlQuery);
@@ -55,6 +56,7 @@ namespace Group3HRManagementSystem
             }
         }//end get employees or project
        
+        //JOIN QUERY EXAMPLE
         public DataTable GetJoinTable()
         {
             DataAccess dataAccess=new DataAccess();
@@ -71,6 +73,7 @@ namespace Group3HRManagementSystem
             
         }//end join table
 
+        //GETTING DESCRIPTION USING JOINS AND STORED PROCEDURES
         public string GetProjectDescriptionFromEmployeeId(string employeeId)
         {
             DataAccess dataAccess = new DataAccess();
@@ -85,6 +88,7 @@ namespace Group3HRManagementSystem
                 return null;
             }
         }//end function
+        //SEARCH QUERY USING STORED PROCEDURE
         public DataTable SearchEmployee(int employeeId , string employeeName , string employeeType)
         {
             DataAccess dataAccess = new DataAccess();
@@ -112,6 +116,7 @@ namespace Group3HRManagementSystem
                 return null;
             }
         }//end method
+        //ADD QUERY USING STORED PROCEDURE
         public int AddProject(string projectName, int projectHourAllocated, double projectBudget, string projectDescription)
         {
             DataAccess dataAccess=new DataAccess();
@@ -136,6 +141,7 @@ namespace Group3HRManagementSystem
                 return -1;
             }
         }//end Add project
+        //ADD EMPLOYEE USING STORED PROCEDURE
         public int AddEmployee(string employeeFirstName,string employeeLastName , string employeeEmail , string employeeContact , DateTime employeeHireDate , int projectAllocated, string employeeType, string payRate, string grade)
         {
             DataAccess dataAccess = new DataAccess();
@@ -182,6 +188,7 @@ namespace Group3HRManagementSystem
 
         }//end add employee
 
+        //UPDATE EMPLOYEE 
         public int UpdateEmployeeDetails(double employeeSalary ,  string employeePerformance ,  string employeeId)
         {
             //For Employee Details Table
@@ -202,6 +209,7 @@ namespace Group3HRManagementSystem
                 return -1;
             }
         }//end update details 
+        //UPDATE EMPLOYEE IN UPDATE TABLE
         public int UpdateEmployeeDetailsInEmployee(string lastName , string projectId , string employeeId)
         {
             DataAccess dataAccess = new DataAccess();
@@ -222,7 +230,7 @@ namespace Group3HRManagementSystem
                 return -1;
             }
         }//end update employee details
-
+        //GET EMPOLOYEE DETAILS
         public DataTable GetEmployeeDetails(string employeeId)
         {
             
@@ -241,7 +249,7 @@ namespace Group3HRManagementSystem
                 return null;
 
             }
-        }
+        }//end get employee details
 
     }//end class
 }//end namespace

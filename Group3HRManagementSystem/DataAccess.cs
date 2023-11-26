@@ -80,7 +80,7 @@ namespace Group3HRManagementSystem
             {
                 throw ex;
             }finally { this.CloseConnection(); }
-        }
+        }// join table query
         public string GetProjectDescription(string sqlQuery, CommandType commandType, string selectedEmployeeIndex)
         {
             
@@ -150,7 +150,7 @@ namespace Group3HRManagementSystem
             }
             catch (Exception ex) { throw ex; }
             finally { this.CloseConnection(); sqlCommand.Dispose(); }
-        }//end method
+        }//end execute non query method
 
         public int UpdateEmployeeDetails(string sqlQuery , CommandType commandType , SqlParameter param1=null , SqlParameter param2=null, SqlParameter param3=null)
         {
@@ -180,14 +180,12 @@ namespace Group3HRManagementSystem
 
             try
             {
-                
-
                 this.OpenConnection();
                 dataAdapter.Fill(ds);
                 return ds.Tables[0];
             }catch(Exception ex) { throw ex; }
             finally { this.CloseConnection(); }
-        }
+        }//end get employee details
 
     }//end Data Access Class
 }//end namespace
