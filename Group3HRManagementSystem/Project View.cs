@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Created by Neha
+//Created by Neha Altered by Anubha
 namespace Group3HRManagementSystem
 {
     public partial class Project_View: Form
@@ -20,7 +20,7 @@ namespace Group3HRManagementSystem
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        }//end close
 
 
         private void Project_View_Load(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace Group3HRManagementSystem
             projectComboBox.DisplayMember = "ProjectName";
             projectComboBox.DataBindings.Add("Text", projectbindingSource, "ProjectName", false, DataSourceUpdateMode.Never);
            
-        }
+        }//end project view form load
 
         private void getEmployeesButton_Click(object sender, EventArgs e)
         {
@@ -52,12 +52,12 @@ namespace Group3HRManagementSystem
             if(intermediaryClass.DBError != null)
             {
                 errorLabel.Text = intermediaryClass.DBError.ToString();
-            }
+            }//end if
             else
             {
                 int rowCount = employeeListDataGridView.Rows.Count;
                 errorLabel.Text = $"The {projectComboBox.Text} has {rowCount} employees working.";
-            }
-        }
+            }//end else
+        }//end get employee details
     }//end class
 }//end namespace

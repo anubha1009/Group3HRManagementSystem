@@ -40,7 +40,7 @@ namespace Group3HRManagementSystem
             AddEmployeeDetails addEmployeeDetails = AddEmployeeDetails.GetSTForm();
             addEmployeeDetails.MdiParent = this;
             addEmployeeDetails.Show();
-        }
+        }//end add employee
 
        
 
@@ -50,27 +50,30 @@ namespace Group3HRManagementSystem
             AddProjectDetails addProjectDetails = AddProjectDetails.GetSTForm2();
             addProjectDetails.MdiParent = this;
             addProjectDetails.Show();
-        }
+        }//end add project
 
         private void salaryCalculatorToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Added by Anubha Vishwakarma
             SalaryCalculatorForm salaryCalculator = new SalaryCalculatorForm();
             salaryCalculator.MdiParent = this;
             salaryCalculator.Show();
-        }
+        }//end salary calculator
 
         private void viewProjectToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Added by Anubha Vishwakarma
             Project_View projectView = new Project_View();
             projectView.MdiParent = this;
             projectView.Show();
-        }
+        }//end view project
 
         private void viewEmployeesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //Added by Anubha Vishwakarma
             ViewEmployees employeeView = new ViewEmployees();
             employeeView.MdiParent = this;
             employeeView.Show();
-        }
+        }//end view employee
     }//end MainForm Class
 }//end Namespace

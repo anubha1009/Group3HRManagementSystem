@@ -12,11 +12,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace Group3HRManagementSystem
 {
-    //Created by Vineela Modified by Anubha
+    //Validations by Vineela Implementation by Anubha
     public partial class ViewEmployees : Form
     {
         private TextBox lastFocusedTextBox;
-        private List<Project> allProjects;
+        private List<Project> allProjects; //global variable for all projects
         private string employeeId;
 
         public ViewEmployees()
@@ -58,7 +58,7 @@ namespace Group3HRManagementSystem
             viewEmployeeDataGridView.DataSource = intermediaryClass.GetJoinTable();
 
             updateEmployeeDetailsGroupBox.Enabled = false;
-        }
+        }//end clear button 
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace Group3HRManagementSystem
             if (intermediaryClass.DBError != null)
             {
                 errorLabel.Text = intermediaryClass.DBError.ToString();
-            }    
+            }//end if     
         }
         //Written by Anubha Vishwakarma
         private void ViewEmployees_Load(object sender, EventArgs e)
@@ -88,14 +88,14 @@ namespace Group3HRManagementSystem
             viewEmployeeDataGridView.AllowUserToDeleteRows= false;
             viewEmployeeDataGridView.AllowUserToAddRows= false;
             viewEmployeeDataGridView.Columns["EmployeeFirstName"].ReadOnly = true;
-            // Adding another column 
+            // Adding another column with update button
             DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
             editButtonColumn.HeaderText = "Update";
             editButtonColumn.Text = "Update";
             editButtonColumn.Name = "Update";
             editButtonColumn.UseColumnTextForButtonValue = true;
             viewEmployeeDataGridView.Columns.Add(editButtonColumn);
-
+            //added button
             this.SetButtonColumnText();
             if (dataIntermediaryClass.DBError != null)
             {
@@ -125,10 +125,6 @@ namespace Group3HRManagementSystem
             //assigning value of list to the combobox
             employeeTypeComboBox.DataSource = employeeTypeNames;
 
-            //get all employee details
-            
-
-
         }//end view employee
         private void SetButtonColumnText()
         {
@@ -138,7 +134,7 @@ namespace Group3HRManagementSystem
                 DataGridViewButtonCell editButtonCell = (DataGridViewButtonCell)row.Cells["Update"];
                 editButtonCell.Value = "Update";
             }
-        }
+        }//end set gbutton method
 
         //handeling selection change
         private void TextBoxSelectionCheck()
@@ -186,6 +182,7 @@ namespace Group3HRManagementSystem
             projectAssignedComboBox.DisplayMember = "Name";
             projectAssignedComboBox.ValueMember = "ProjectId";
             employeeSalaryTextBox.Text = employeeSalary;
+            //Selecting radio button
             switch (employeePerformance)
             {
                 case "A":
@@ -256,6 +253,7 @@ namespace Group3HRManagementSystem
                 // Check if a valid row is selected
                 if (e.RowIndex >= 0 && e.RowIndex < viewEmployeeDataGridView.Rows.Count)
                 {
+                    //assigning the selected row values
                     value = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeId"].Value;
                     firstName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeFirstName"].Value;
                     lastName = viewEmployeeDataGridView.Rows[e.RowIndex].Cells["EmployeeLastName"].Value;
@@ -269,16 +267,16 @@ namespace Group3HRManagementSystem
                         // Convert the value to a string
                         employeeId = value.ToString();
                         this.employeeId = employeeId;
-                    }
+                    }//end if
                 }
                 //populating text box
                 DataIntermediaryClass intermediaryClass = new DataIntermediaryClass();
                 employeeDescriptionLabel.Text = $"Employee Id:{value.ToString()} and {Environment.NewLine}Name:{firstName} {lastName} {Environment.NewLine}" +
                     $"is assigned to the project {projectName}" +
-                    $"where the description is:";
+                    $" where the description is:";
                 employeeDescriptionLabel.Text += intermediaryClass.GetProjectDescriptionFromEmployeeId(employeeId);
                 this.PopulateUpdateGroupBox(firstName.ToString(), lastName.ToString(), employeeType.ToString(), projectName.ToString(), employeeSalary.ToString(), employeePerformance.ToString());
-            }
+            }//end row index if
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -288,7 +286,7 @@ namespace Group3HRManagementSystem
             double salary;
             string performance = GetSelectedPerformance();
             object projectId = projectAssignedComboBox.SelectedValue;
-           
+           //validations for update group box
             if (string.IsNullOrEmpty(lastName))
             {
                 MessageBox.Show("Please enter a valid last name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -315,7 +313,7 @@ namespace Group3HRManagementSystem
                     BRadioButton.Checked = false;
                     CRadioButton.Checked = false;
                    
-                    MessageBox.Show("Employee details updated", "Successful", MessageBoxButtons.OK);
+                    MessageBox.Show("Employee details updated", "Successfully Updated!", MessageBoxButtons.OK);
                     viewEmployeeDataGridView.DataSource = dataIntermediaryClass.GetJoinTable();
 
                     updateEmployeeDetailsGroupBox.Enabled = false;
@@ -351,6 +349,6 @@ namespace Group3HRManagementSystem
 
             // Return an empty string if no performance level is selected.
             return string.Empty;
-        }
+        }//end get seleted performance 
     }//end class
 }//end namespace
