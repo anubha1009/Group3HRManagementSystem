@@ -122,6 +122,7 @@
             // resultLabel
             // 
             this.resultLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.resultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resultLabel.Location = new System.Drawing.Point(65, 448);
             this.resultLabel.Name = "resultLabel";
             this.resultLabel.Size = new System.Drawing.Size(734, 48);
@@ -150,7 +151,7 @@
             // contractEndDateTimePicker
             // 
             this.contractEndDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.contractEndDateTimePicker.Location = new System.Drawing.Point(89, 57);
+            this.contractEndDateTimePicker.Location = new System.Drawing.Point(105, 59);
             this.contractEndDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contractEndDateTimePicker.Name = "contractEndDateTimePicker";
             this.contractEndDateTimePicker.Size = new System.Drawing.Size(130, 22);
@@ -177,7 +178,7 @@
             // contractStartDateTimePicker
             // 
             this.contractStartDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.contractStartDateTimePicker.Location = new System.Drawing.Point(89, 26);
+            this.contractStartDateTimePicker.Location = new System.Drawing.Point(105, 26);
             this.contractStartDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contractStartDateTimePicker.Name = "contractStartDateTimePicker";
             this.contractStartDateTimePicker.Size = new System.Drawing.Size(130, 22);
@@ -186,19 +187,19 @@
             // 
             // contractSalaryTextBox
             // 
-            this.contractSalaryTextBox.Location = new System.Drawing.Point(91, 92);
+            this.contractSalaryTextBox.Location = new System.Drawing.Point(105, 92);
             this.contractSalaryTextBox.Name = "contractSalaryTextBox";
-            this.contractSalaryTextBox.Size = new System.Drawing.Size(100, 22);
+            this.contractSalaryTextBox.Size = new System.Drawing.Size(130, 22);
             this.contractSalaryTextBox.TabIndex = 3;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 97);
+            this.label8.Location = new System.Drawing.Point(10, 98);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(46, 16);
+            this.label8.Size = new System.Drawing.Size(86, 16);
             this.label8.TabIndex = 1;
-            this.label8.Text = "Salary";
+            this.label8.Text = "Pay Rate(/hr)";
             // 
             // hoursWorkedtextBox
             // 
@@ -232,38 +233,38 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(86, 16);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Hourly Wage";
+            this.label4.Text = "Pay Rate(/hr)";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(11, 35);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 16);
+            this.label6.Size = new System.Drawing.Size(83, 16);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Duration";
+            this.label6.Text = "Duration(hrs)";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(11, 74);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 16);
+            this.label7.Size = new System.Drawing.Size(86, 16);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Pay Rate";
+            this.label7.Text = "Pay Rate(/hr)";
             // 
             // fixedSalaryLabel
             // 
             this.fixedSalaryLabel.AutoSize = true;
             this.fixedSalaryLabel.Location = new System.Drawing.Point(63, 268);
             this.fixedSalaryLabel.Name = "fixedSalaryLabel";
-            this.fixedSalaryLabel.Size = new System.Drawing.Size(82, 16);
+            this.fixedSalaryLabel.Size = new System.Drawing.Size(122, 16);
             this.fixedSalaryLabel.TabIndex = 6;
-            this.fixedSalaryLabel.Text = "Fixed Salary";
+            this.fixedSalaryLabel.Text = "Fixed Pay Rate(/hr)";
             // 
             // payRateTextBox
             // 
-            this.payRateTextBox.Location = new System.Drawing.Point(95, 69);
+            this.payRateTextBox.Location = new System.Drawing.Point(103, 68);
             this.payRateTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.payRateTextBox.Name = "payRateTextBox";
             this.payRateTextBox.Size = new System.Drawing.Size(89, 22);
@@ -271,7 +272,7 @@
             // 
             // durationTextBox
             // 
-            this.durationTextBox.Location = new System.Drawing.Point(95, 30);
+            this.durationTextBox.Location = new System.Drawing.Point(103, 29);
             this.durationTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.durationTextBox.Name = "durationTextBox";
             this.durationTextBox.Size = new System.Drawing.Size(89, 22);
@@ -279,10 +280,10 @@
             // 
             // fixedSalaryTextBox
             // 
-            this.fixedSalaryTextBox.Location = new System.Drawing.Point(167, 266);
+            this.fixedSalaryTextBox.Location = new System.Drawing.Point(191, 266);
             this.fixedSalaryTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.fixedSalaryTextBox.Name = "fixedSalaryTextBox";
-            this.fixedSalaryTextBox.Size = new System.Drawing.Size(633, 22);
+            this.fixedSalaryTextBox.Size = new System.Drawing.Size(609, 22);
             this.fixedSalaryTextBox.TabIndex = 9;
             // 
             // tempContractEmployeeGroupBox
@@ -291,11 +292,11 @@
             this.tempContractEmployeeGroupBox.Controls.Add(this.label7);
             this.tempContractEmployeeGroupBox.Controls.Add(this.durationTextBox);
             this.tempContractEmployeeGroupBox.Controls.Add(this.payRateTextBox);
-            this.tempContractEmployeeGroupBox.Location = new System.Drawing.Point(326, 134);
+            this.tempContractEmployeeGroupBox.Location = new System.Drawing.Point(326, 123);
             this.tempContractEmployeeGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tempContractEmployeeGroupBox.Name = "tempContractEmployeeGroupBox";
             this.tempContractEmployeeGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tempContractEmployeeGroupBox.Size = new System.Drawing.Size(212, 118);
+            this.tempContractEmployeeGroupBox.Size = new System.Drawing.Size(212, 134);
             this.tempContractEmployeeGroupBox.TabIndex = 10;
             this.tempContractEmployeeGroupBox.TabStop = false;
             this.tempContractEmployeeGroupBox.Text = "Temp Contract Employee";
@@ -330,7 +331,7 @@
             this.hourlyEmployeeGroupBox.Controls.Add(this.hourlyWagetextBox);
             this.hourlyEmployeeGroupBox.Location = new System.Drawing.Point(570, 123);
             this.hourlyEmployeeGroupBox.Name = "hourlyEmployeeGroupBox";
-            this.hourlyEmployeeGroupBox.Size = new System.Drawing.Size(230, 128);
+            this.hourlyEmployeeGroupBox.Size = new System.Drawing.Size(230, 134);
             this.hourlyEmployeeGroupBox.TabIndex = 12;
             this.hourlyEmployeeGroupBox.TabStop = false;
             this.hourlyEmployeeGroupBox.Text = "Hourly Employee";
