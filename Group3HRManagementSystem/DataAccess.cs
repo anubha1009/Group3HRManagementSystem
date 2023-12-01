@@ -89,7 +89,7 @@ namespace Group3HRManagementSystem
             sqlCommand.Parameters.AddWithValue("@EmployeeId", selectedEmployeeIndex);
             try
             {
-                connection.Open();
+                this.OpenConnection();
                 SqlDataReader reader = sqlCommand.ExecuteReader();
                 if (reader.Read())
                 {
@@ -141,8 +141,8 @@ namespace Group3HRManagementSystem
             if (param5 != null) { sqlCommand.Parameters.Add(param5); }
             if (param6 != null) { sqlCommand.Parameters.Add(param6); }
             if (param7 != null) { sqlCommand.Parameters.Add(param7); }
-            if (param7 != null) sqlCommand.Parameters.Add(param8);
-            if (param7 != null) sqlCommand.Parameters.Add(param9);
+            if (param8 != null) sqlCommand.Parameters.Add(param8);
+            if (param9 != null) sqlCommand.Parameters.Add(param9);
             try
             {
                 this.OpenConnection();
